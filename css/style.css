@@ -59,3 +59,10 @@ body {
     border-width: 1px;
     cursor: pointer;
 }
+
+/* MAIN */
+
+.languages img{
+    width: 30px;
+    height: auto;
+}

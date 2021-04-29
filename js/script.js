@@ -8,7 +8,8 @@ var app = new Vue(
         data: {
 
             pushText: '',
-            arrayFilms: []
+            arrayFilms: [],
+            language: ''
 
         },
         /* end DATA */
@@ -20,59 +21,56 @@ var app = new Vue(
             // Funzione per richiamare API
             callApi () {
 
-                // Dichiaro la variabile query con il valore
-                // inserito dall'utente
-                const query = this.pushText;
-
                 axios
-                .get( 'https://api.themoviedb.org/3/search/movie', {
+                    .get( 'https://api.themoviedb.org/3/search/movie', {
 
-                    params: {
-                        api_key: '3414ee67882ebd632253f10b916225d8',
-                        language: 'it',
-                        query: query,
-                        page: 1
-                    }
+                        params: {
+                            api_key: '3414ee67882ebd632253f10b916225d8',
+                            language: 'it',
+                            query: this.pushText,
+                            page: 1
+                        }
 
-                } )
-                .then( ( response ) => {
+                    } )
+                    .then( ( response ) => {
 
-                    // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
-                    // response.data.results
-                    this.arrayFilms = response.data.results
-                    console.log( response.data.results );
+                        // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
+                        // response.data.results
+                        this.arrayFilms = response.data.results
+                        //console.log( response.data.results );
 
-                } );
+                    } );
 
-            }
+            },
             /* end Funzione callApi */
+
+            /* Funzione imageLanguage */
+            // Funzione che ritorna l'immagine della bandiera 
+            // rispetto all'"original_language" passato dall'Api
+            imageLanguage ( language ) {
+
+                const ita = 'it';
+                const eng = 'en';
+
+                let result = 'mondo.jpg';
+
+                if ( language === ita ) {
+                    result = 'ita.png';
+                } else if ( language === eng ) {
+                    result = 'eng.jpg';
+                }
+
+                return result;
+            }
+            /* end Funzione imageLanguage */
+
+
 
         },
         /* end METHODS */
 
         /* MOUNTED */
         mounted () {
-
-            /* Axios */
-            axios
-                .get( 'https://api.themoviedb.org/3/search/movie', {
-
-                    params: {
-                        api_key: '3414ee67882ebd632253f10b916225d8',
-                        language: 'it',
-                        query: 'test',
-                        page: 1
-                    }
-
-                } )
-                .then( ( response ) => {
-
-                    // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
-                    // response.data.results
-                    console.log( response.data.results );
-
-                } );
-            /* end Axios */
 
         },
         /* end MOUNTED */
@@ -119,3 +117,27 @@ film trovato:
 // 2. Titolo Originale
 // 3. Lingua
 // 4. Voto
+
+
+//===
+/*
+Mileston 2:
+Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
+nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
+nazione ritornata dall’API (le flag non ci sono in FontAwesome).
+Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca
+dovremo prendere sia i film che corrispondono alla query, sia le serie tv, stando
+attenti ad avere alla fine dei valori simili (le serie e i film hanno campi nel JSON di
+risposta diversi, simili ma non sempre identici)
+Qui un esempio di chiamata per le serie tv:
+https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=s
+crubs
+*/
+//===
+
+/* Mileston 2.1 */
+// Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
+// nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
+// nazione ritornata dall’API (le flag non ci sono in FontAwesome).
+
+
