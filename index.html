@@ -46,10 +46,9 @@
                 <div class="searchbar">
 
                     <input class="text-input" placeholder="Scrivi il film da ricercare" type="text"
-                        v-model="pushText">
-                    {{pushText}}
+                        v-model="pushText" v-on:keyup.enter="callApi()">
 
-                    <button class="btn">Ricerca</button>
+                    <button class="btn" v-on:click="callApi()">Ricerca</button>
 
                 </div>
                 <!-- end Searchbar -->
