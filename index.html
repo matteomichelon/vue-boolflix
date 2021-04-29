@@ -56,6 +56,48 @@
             </header>
             <!-- end HEADER -->
 
+            <!-- MAIN -->
+            <main>
+
+                <!-- v-if Film view -->
+                <div v-if="arrayFilms.length > 0">
+
+                    <!-- Single Film -->
+                    <div class="film" v-for="film in arrayFilms">
+
+                        <!-- Title -->
+                        <div class="title">
+                            Titolo: {{film.title}}
+                        </div>
+                        <!-- end Title -->
+
+                        <!-- Original Title -->
+                        <div class="original-title">
+                            Titolo Originale: {{film.original_title}}
+                        </div>
+                        <!-- end Original Title -->
+
+                        <!-- Languages -->
+                        <div class="languages">
+                            Lingua: {{film.original_language}}
+                        </div>
+                        <!-- Languages -->
+
+                        <!-- Vote -->
+                        <div class="vote">
+                            Voto: {{film.vote_average}}
+                        </div>
+                        <!-- Vote -->
+
+                    </div>
+                    <!-- end Single Film -->
+
+                </div>
+                <!-- end v-if Film view -->
+
+            </main>
+            <!-- MAIN -->
+
         </div>
         <!-- End Container -->
 

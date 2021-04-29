@@ -8,6 +8,7 @@ var app = new Vue(
         data: {
 
             pushText: '',
+            arrayFilms: []
 
         },
         /* end DATA */
@@ -38,7 +39,7 @@ var app = new Vue(
 
                     // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                     // response.data.results
-                    const arrayFilm = response.data.results
+                    this.arrayFilms = response.data.results
                     console.log( response.data.results );
 
                 } );
@@ -68,7 +69,6 @@ var app = new Vue(
 
                     // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                     // response.data.results
-                    const arrayFilm = response.data.results
                     console.log( response.data.results );
 
                 } );
@@ -111,3 +111,11 @@ film trovato:
 /* Mileston 1.2 */
 // Possiamo, cliccando il bottone, 
 // cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
+
+/* Mileston 1.3 */
+// Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori per ogni
+// film trovato:
+// 1. Titolo
+// 2. Titolo Originale
+// 3. Lingua
+// 4. Voto
