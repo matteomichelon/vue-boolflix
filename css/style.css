@@ -12,11 +12,6 @@
     box-sizing: border-box;
 }
 
-/* COMMON */
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
 
 img {
     width: 100%;
@@ -31,4 +26,36 @@ a {
 li {
     list-style-type: none;
     display: inline-block;
+}
+
+/* COMMON */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+    /* test */
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+/* HEADER */
+
+.searchbar .text-input {
+    padding: 10px 20px;
+    min-width: 300px;
+    border-radius: 10px;
+    border-width: 1px;
+    margin-right: 20px;
+}
+
+.searchbar .btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-width: 1px;
+    cursor: pointer;
 }

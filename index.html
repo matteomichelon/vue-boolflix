@@ -36,7 +36,30 @@
     <!-- Vue Container -->
     <div id="root">
 
-        
+        <!-- Container -->
+        <div class="container">
+
+            <!-- HEADER -->
+            <header>
+
+                <!-- Searchbar -->
+                <div class="searchbar">
+
+                    <input class="text-input" placeholder="Scrivi il film da ricercare" type="text"
+                        v-model="pushText">
+                    {{pushText}}
+
+                    <button class="btn">Ricerca</button>
+
+                </div>
+                <!-- end Searchbar -->
+
+            </header>
+            <!-- end HEADER -->
+
+        </div>
+        <!-- End Container -->
+
 
     </div>
     <!-- end Vue Container -->
