@@ -9,7 +9,7 @@ var app = new Vue(
 
             pushText: '',
             arrayFilms: [],
-            language: ''
+            arrayTelefilms: []
 
         },
         /* end DATA */
@@ -20,14 +20,21 @@ var app = new Vue(
             /* Funzione callApi */
             // Funzione per richiamare API
             callApi () {
+                this.film( this.pushText );
+                this.telefilm(this.pushText);
+            },
+            /* end Funzione callApi */
 
+            // Ricerca Film
+            // /search/movie
+            film ( text ) {
                 axios
                     .get( 'https://api.themoviedb.org/3/search/movie', {
 
                         params: {
                             api_key: '3414ee67882ebd632253f10b916225d8',
                             language: 'it',
-                            query: this.pushText,
+                            query: text,
                             page: 1
                         }
 
@@ -40,11 +47,33 @@ var app = new Vue(
                         //console.log( response.data.results );
 
                     } );
-
             },
-            /* end Funzione callApi */
 
-            /* Funzione imageLanguage */
+            // Ricerca Telefilm
+            // /search/tv
+            telefilm ( text ) {
+                axios
+                    .get( 'https://api.themoviedb.org/3/search/tv', {
+
+                        params: {
+                            api_key: '3414ee67882ebd632253f10b916225d8',
+                            language: 'it',
+                            query: text,
+                            page: 1
+                        }
+
+                    } )
+                    .then( ( response ) => {
+
+                        // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
+                        // response.data.results
+                        this.arrayTelefilms = response.data.results
+                        //console.log( response.data.results );
+
+                    } );
+            },
+
+
             // Funzione che ritorna l'immagine della bandiera 
             // rispetto all'"original_language" passato dall'Api
             imageLanguage ( language ) {
@@ -62,9 +91,6 @@ var app = new Vue(
 
                 return result;
             }
-            /* end Funzione imageLanguage */
-
-
 
         },
         /* end METHODS */
@@ -139,5 +165,12 @@ crubs
 // Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
 // nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
 // nazione ritornata dall’API (le flag non ci sono in FontAwesome).
+
+/* Mileston 2.2 */
+// Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query,
+// sia le serie tv, stando attenti ad avere alla fine dei valori simili 
+// (le serie e i film hanno campi nel JSON di risposta diversi, simili ma non sempre identici)
+// Qui un esempio di chiamata per le serie tv:
+// https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs
 
 

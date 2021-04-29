@@ -60,7 +60,8 @@
             <main>
 
                 <!-- v-if Film view -->
-                <div v-if="arrayFilms.length > 0">
+                <div class="film" v-if="arrayFilms.length > 0">
+                    <h2>FILM</h2>
 
                     <!-- Single Film -->
                     <div class="film" v-for="film in arrayFilms">
@@ -95,6 +96,44 @@
 
                 </div>
                 <!-- end v-if Film view -->
+
+                <!-- v-if Telefilm view -->
+                <div class="film" v-if="arrayTelefilms.length > 0">
+
+                    <h2>TELEFILM</h2>
+                    <!-- Single Film -->
+                    <div class="film" v-for="telefilm in arrayTelefilms">
+
+                        <!-- Title -->
+                        <div class="title">
+                            Titolo: {{telefilm.name}}
+                        </div>
+                        <!-- end Title -->
+
+                        <!-- Original Title -->
+                        <div class="original-title">
+                            Titolo Originale: {{telefilm.original_name}}
+                        </div>
+                        <!-- end Original Title -->
+
+                        <!-- Languages -->
+                        <div class="languages">
+                            Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
+                            <!-- {{imageLanguage()}} -->
+                        </div>
+                        <!-- Languages -->
+
+                        <!-- Vote -->
+                        <div class="vote">
+                            Voto: {{telefilm.vote_average}}
+                        </div>
+                        <!-- Vote -->
+
+                    </div>
+                    <!-- end Single Film -->
+
+                </div>
+                <!-- end v-if Telefilm view -->
 
             </main>
             <!-- MAIN -->
