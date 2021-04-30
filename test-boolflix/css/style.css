@@ -96,7 +96,7 @@ main .vue-if-film {
 
 
 .film {
-    height: auto;
+    height: 250px;
     padding: 15px;
     width: calc(100% / 5);
     position: relative;
@@ -114,7 +114,7 @@ main .vue-if-film {
 
 .poster {
     width: 150px;
-    height: 200px;
+    height: 100%;
     position: absolute;
-    opacity: 0.1;
 }
+

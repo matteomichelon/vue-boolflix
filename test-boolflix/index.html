@@ -26,8 +26,7 @@
     <!-- Script ajax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 
-    <!-- Script Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 
 </head>
 
@@ -76,12 +75,16 @@
                         <div class="film">
 
                             <!-- Poster -->
-                            <div class="poster">
+                            <div class="poster"
+                                v-if="!hover"
+                                @mouseover="changeHover()">
                                 <img src="img/test.jpg" alt="">
                             </div>
                             <!-- end Poster -->
 
-                            <div class="film-container">
+                            <!-- Film Container -->
+                            <div class="film-container" v-if="hover"
+                            @mouseleave="changeHover()">
                                 <!-- Title -->
                                 <div class="title">
                                     Titolo: Mr. Robot: Behind the Mask
@@ -108,6 +111,7 @@
                                 </div>
                                 <!-- Vote -->
                             </div>
+                            <!-- end Film Container -->
 
                         </div>
                         <!-- end Single Film -->
@@ -116,12 +120,17 @@
                         <div class="film">
 
                             <!-- Poster -->
-                            <div class="poster">
+                            <div class="poster"
+                                v-if="!hover"
+                                @mouseover="changeHover()"
+                                >
                                 <img src="img/test.jpg" alt="">
                             </div>
                             <!-- end Poster -->
 
-                            <div class="film-container">
+                            <!-- Film Container -->
+                            <div class="film-container" v-if="hover"
+                            @mouseleave="changeHover()">
                                 <!-- Title -->
                                 <div class="title">
                                     Titolo: Mr. Robot: Behind the Mask
@@ -148,18 +157,198 @@
                                 </div>
                                 <!-- Vote -->
                             </div>
+                            <!-- end Film Container -->
 
                         </div>
                         <!-- end Single Film -->
 
-                        
-                        
+                        <!-- Single Film -->
+                        <div class="film">
+
+                            <!-- Poster -->
+                            <div class="poster"
+                                v-if="!hover"
+                                @mouseover="changeHover()"
+                                >
+                                <img src="img/test.jpg" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Film Container -->
+                            <div class="film-container" v-if="hover"
+                            @mouseleave="changeHover()">
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: US
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+
+                                    vote XXXXXXXXXXX
+
+                                </div>
+                                <!-- Vote -->
+                            </div>
+                            <!-- end Film Container -->
+
+                        </div>
+                        <!-- end Single Film -->
+
+                        <!-- Single Film -->
+                        <div class="film">
+
+                            <!-- Poster -->
+                            <div class="poster"
+                                v-if="!hover"
+                                @mouseover="changeHover()"
+                                >
+                                <img src="img/test.jpg" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Film Container -->
+                            <div class="film-container" v-if="hover"
+                            @mouseleave="changeHover()">
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: US
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+
+                                    vote XXXXXXXXXXX
+
+                                </div>
+                                <!-- Vote -->
+                            </div>
+                            <!-- end Film Container -->
+
+                        </div>
+                        <!-- end Single Film -->
+
+                        <!-- Single Film -->
+                        <div class="film">
+
+                            <!-- Poster -->
+                            <div class="poster"
+                                v-if="!hover"
+                                @mouseover="changeHover()"
+                                >
+                                <img src="img/test.jpg" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Film Container -->
+                            <div class="film-container" v-if="hover"
+                            @mouseleave="changeHover()">
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: US
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+
+                                    vote XXXXXXXXXXX
+
+                                </div>
+                                <!-- Vote -->
+                            </div>
+                            <!-- end Film Container -->
+
+                        </div>
+                        <!-- end Single Film -->
+
+                        <!-- Single Film -->
+                        <div class="film">
+
+                            <!-- Poster -->
+                            <div class="poster"
+                                v-if="!hover"
+                                @mouseover="changeHover()"
+                                >
+                                <img src="img/test.jpg" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Film Container -->
+                            <div class="film-container" v-if="hover"
+                            @mouseleave="changeHover()">
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: Mr. Robot: Behind the Mask
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: US
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+
+                                    vote XXXXXXXXXXX
+
+                                </div>
+                                <!-- Vote -->
+                            </div>
+                            <!-- end Film Container -->
+
+                        </div>
+                        <!-- end Single Film -->
+
+
                     </div>
                     <!-- end v-if Film view -->
-
-
-
-
 
 
                 </main>
@@ -173,6 +362,8 @@
     </div>
     <!-- end Vue Container -->
 
+    <!-- Script Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
     <!-- Script javascript -->
     <script type="text/javascript" src="js/script.js"></script>

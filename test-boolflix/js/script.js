@@ -9,7 +9,8 @@ var app = new Vue(
 
             pushText: 'mr robot',
             arrayFilms: [],
-            arrayTelefilms: []
+            arrayTelefilms: [],
+            hover: false
 
         },
         /* end DATA */
@@ -124,6 +125,11 @@ var app = new Vue(
 
                 return star;
 
+            },
+
+            changeHover () {
+                this.hover = !this.hover;
+                console.log( this.hover );
             }
 
         },
