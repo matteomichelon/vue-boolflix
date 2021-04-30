@@ -1,0 +1,120 @@
+/*  
+    @media screen and (max-width: 768px) {}
+    @media screen and (min-width:769px) and (max-width:991px) {}
+    @media screen and (min-width: 992px) {}
+*/
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+/* COMMON */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    height: 100vh;
+    min-width: 1000px;
+    padding: 20px 0;
+
+    /* test */
+    background-color: bisque;
+}
+
+
+.container {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    padding: 20px;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.display-flex {
+    display: flex;
+}
+
+/* HEADER */
+
+header {
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo img {
+    width: 75px;
+    height: auto;
+}
+
+.searchbar .text-input {
+    padding: 10px 20px;
+    min-width: 300px;
+    border-radius: 10px;
+    border-width: 1px;
+    margin-right: 20px;
+}
+
+.searchbar .btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+/* MAIN */
+
+main .vue-if-film {
+    padding: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.film {
+    height: auto;
+    padding: 15px;
+    width: calc(100% / 5);
+    position: relative;
+}
+
+.film-container {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    text-align: left;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.poster {
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    opacity: 0.1;
+}
