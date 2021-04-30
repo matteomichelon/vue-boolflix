@@ -66,6 +66,12 @@
                     <!-- Single Film -->
                     <div class="film" v-for="film in arrayFilms">
 
+                        <!-- Poster -->
+                        <div class="poster">
+                            <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
+                        </div>
+                        <!-- end Poster -->
+
                         <!-- Title -->
                         <div class="title">
                             Titolo: {{film.title}}
@@ -103,6 +109,12 @@
                     <h2>TELEFILM</h2>
                     <!-- Single Film -->
                     <div class="film" v-for="telefilm in arrayTelefilms">
+
+                        <!-- Poster -->
+                        <div class="poster">
+                            <img :src="'https://image.tmdb.org/t/p/w342'+ telefilm.poster_path" alt="">
+                        </div>
+                        <!-- end Poster -->
 
                         <!-- Title -->
                         <div class="title">
