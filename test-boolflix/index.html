@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title -->
-    <title>TEEEEESTTTTT</title>
+    <title>TEEEEEEST</title>
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -26,7 +26,8 @@
     <!-- Script ajax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 
-
+    <!-- Script Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 </head>
 
@@ -66,58 +67,113 @@
                 <!-- MAIN -->
                 <main>
 
+                    <h2 v-if="arrayFilms.length > 0">Film</h2>
 
                     <!-- v-if Film view -->
-                    <div class="vue-if-film display-flex">
-
+                    <div class="vue-if-film display-flex"
+                        v-if="arrayFilms.length > 0">
 
                         <!-- Single Film -->
-                        <div class="film">
+                        <div class="film" v-for="(film, index ) in arrayFilms">
 
                             <!-- Poster -->
-                            <div class="poster">
-                                <img src="img/test.jpg" alt="">
+                            <div class="poster"
+                                :class="display"
+                                v-on:mouseenter="posterMouseEnter(index)">
+
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
+
                             </div>
                             <!-- end Poster -->
 
-                            <!-- Film Container -->
-                            <div class="film-container">
+                            <!-- Film Text Container -->
+                            <div class="film-container display-none">
+
                                 <!-- Title -->
                                 <div class="title">
-                                    Titolo: Mr. Robot: Behind the Mask
+                                    Titolo: {{film.title}}
                                 </div>
                                 <!-- end Title -->
 
                                 <!-- Original Title -->
                                 <div class="original-title">
-                                    Titolo Originale: Mr. Robot: Behind the Mask
+                                    Titolo Originale: {{film.original_title}}
                                 </div>
                                 <!-- end Original Title -->
 
                                 <!-- Languages -->
                                 <div class="languages">
-                                    Lingua: US
+                                    Lingua: <img :src="'img/' + imageLanguage(film.original_language)" alt="">
                                 </div>
                                 <!-- Languages -->
 
                                 <!-- Vote -->
                                 <div class="vote">
-
-                                    vote XXXXXXXXXXX
-
+                                    <span v-html="voteStar(film.vote_average)"></span>
                                 </div>
                                 <!-- Vote -->
+
                             </div>
-                            <!-- end Film Container -->
+                            <!-- End Film Text container -->
 
                         </div>
                         <!-- end Single Film -->
 
-                       
-
-
                     </div>
                     <!-- end v-if Film view -->
+
+
+                    <h2 v-if="arrayTelefilms.length > 0">Telefilm</h2>
+
+                    <!-- v-if Telefilm view -->
+                    <div class="vue-if-telefilm display-flex" v-if="arrayTelefilms.length > 0">
+
+                        <!-- Single Telefilm -->
+                        <div class="telefilm" v-for="telefilm in arrayTelefilms">
+
+                            <!-- Poster -->
+                            <div class="poster">
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ telefilm.poster_path" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Telefilm Text Container -->
+                            <div class="telefilm-container">
+
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: {{telefilm.name}}
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: {{telefilm.original_name}}
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
+                                    <!-- {{imageLanguage()}} -->
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+                                    <span v-html="voteStar(telefilm.vote_average)"></span>
+                                </div>
+                                <!-- Vote -->
+
+                            </div>
+                            <!-- end Telefilm Text Container -->
+
+                        </div>
+                        <!-- end Single Telefilm -->
+
+                    </div>
+                    <!-- end v-if Telefilm view -->
+
 
 
                 </main>
@@ -131,8 +187,6 @@
     </div>
     <!-- end Vue Container -->
 
-    <!-- Script Vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
     <!-- Script javascript -->
     <script type="text/javascript" src="js/script.js"></script>

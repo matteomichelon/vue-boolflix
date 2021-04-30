@@ -10,6 +10,9 @@ var app = new Vue(
             pushText: 'mr robot',
             arrayFilms: [],
             arrayTelefilms: [],
+            display: {
+                'display-none': false
+            }
 
         },
         /* end DATA */
@@ -19,6 +22,7 @@ var app = new Vue(
 
             /* Funzione callApi */
             // Funzione per richiamare API
+            /* TODO: controlla chiamata singola per  film e telefilm */
             callApi () {
                 this.film( this.pushText );
                 this.telefilm( this.pushText );
@@ -99,6 +103,7 @@ var app = new Vue(
             // Può ricevere come parametro il voto in formato decimale da 0 a 10
             // Ritorna un codice html di stelline colorate 
             // ( con Vue utilizzare in html v-html="" )
+            /* TODO: da sistemare con v-for su html */
             voteStar ( vote ) {
 
                 // Dichiaro il numero massimo di stelline
@@ -126,6 +131,29 @@ var app = new Vue(
 
             },
 
+            posterMouseEnter ( indexFilm ) {
+
+                this.arrayFilms.forEach( ( film, index ) => {
+                    if ( index === indexFilm )
+                        this.display[ 'display-none' ] = !this.display[ 'display-none' ];
+                } );
+
+            },
+
+            posterMouseLeave ( indexFilm ) {
+                this.arrayFilms.forEach( ( film, index ) => {
+                    if ( index === indexFilm )
+                        this.display[ 'display-none' ] = !this.display[ 'display-none' ];
+                } );
+            },
+
+            filmContainerMouseEnter ( index ) {
+
+            },
+
+            filmContainerMouseLeave ( index ) {
+
+            }
 
         },
         /* end METHODS */
@@ -257,5 +285,19 @@ piene (o mezze vuote :P)
 // la poster_path con w342)
 // 3-  Andando con il mouse sopra una card (on hover), appaiono le informazioni
 // aggiuntive già prese nei punti precedenti più la overview
+
+/* Mileston 4.1 */
+// Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp,
+// creando un layout completo simil-Netflix:
+// 1- Un header che contiene logo e search bar
+// 2- Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma
+// di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio
+// la poster_path con w342)
+
+/* Mileston 4.2 */
+// 3-  Andando con il mouse sopra una card (on hover), appaiono le informazioni
+// aggiuntive già prese nei punti precedenti più la overview
+
+
 
 

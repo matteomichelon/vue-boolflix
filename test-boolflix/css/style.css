@@ -88,21 +88,28 @@ header {
 
 /* MAIN */
 
-main .vue-if-film {
+main {
+    overflow-y: scroll;
+}
+
+.vue-if-film,
+.vue-if-telefilm {
     padding: 20px;
     flex-wrap: wrap;
     text-align: center;
 }
 
 
-.film {
+.film,
+.telefilm {
     height: 250px;
     padding: 15px;
     width: calc(100% / 5);
     position: relative;
 }
 
-.film-container {
+.film-container,
+.telefilm-container {
     width: 150px;
     height: auto;
     position: absolute;
@@ -116,4 +123,20 @@ main .vue-if-film {
     width: 150px;
     height: 100%;
     position: absolute;
+}
+
+
+.languages img {
+    width: 30px;
+    height: auto;
+}
+
+.poster img {
+    width: 150px;
+    height: auto;
+
+}
+
+.display-none{
+    display: none;
 }
