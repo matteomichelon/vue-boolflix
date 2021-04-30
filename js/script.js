@@ -7,7 +7,7 @@ var app = new Vue(
         /* DATA */
         data: {
 
-            pushText: '',
+            pushText: 'test',
             arrayFilms: [],
             arrayTelefilms: []
 
@@ -21,7 +21,7 @@ var app = new Vue(
             // Funzione per richiamare API
             callApi () {
                 this.film( this.pushText );
-                this.telefilm(this.pushText);
+                this.telefilm( this.pushText );
             },
             /* end Funzione callApi */
 
@@ -92,6 +92,17 @@ var app = new Vue(
                 }
 
                 return result;
+            },
+
+            // Funzione per la transizione da voto in decimale a 
+            // numero di stelline colorate
+            // Può ricevere come parametro il voto in formato decimale da 0 a 10
+            voteStar ( vote ) {
+
+                let newVote = ( vote / 2 );
+                let excessVote  = Math.ceil(newVote);
+                //console.log( 'Vote: ', excessVote );
+
             }
 
         },
@@ -176,7 +187,7 @@ crubs
 // https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs
 
 //===
-/* 
+/*
 Mileston 3;
 In questa milestone come prima cosa aggiungiamo la copertina del film o della serie
 al nostro elenco. Ci viene passata dall’API solo la parte finale dell’URL, questo
@@ -207,5 +218,12 @@ piene (o mezze vuote :P)
 // parte finale dell’URL passata dall’API.
 // Esempio di URL:
 // https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
+
+/* Mileston 3.2 */
+// Trasformiamo poi il voto da 1 a 10 decimale in un numero intero da 1 a 5, così da
+// permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5,
+// lasciando le restanti vuote (troviamo le icone in FontAwesome).
+// Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze
+// piene (o mezze vuote :P)
 
 
