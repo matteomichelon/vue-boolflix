@@ -53,6 +53,9 @@
                 </div>
                 <!-- end Searchbar -->
 
+                <!-- TEST -->
+                <i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>
+
             </header>
             <!-- end HEADER -->
 
@@ -93,7 +96,9 @@
 
                         <!-- Vote -->
                         <div class="vote">
-                            Voto: {{voteStar(film.vote_average)}}
+
+                            <span v-html="voteStar(film.vote_average)"></span>
+
                         </div>
                         <!-- Vote -->
 
