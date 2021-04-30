@@ -36,128 +36,140 @@
     <!-- Vue Container -->
     <div id="root">
 
-        <!-- Container -->
-        <div class="container">
+        <div class="wrapper">
 
-            <!-- HEADER -->
-            <header>
+            <!-- Container -->
+            <div class="container display-flex">
 
-                <!-- Searchbar -->
-                <div class="searchbar">
+                <!-- HEADER -->
+                <header class="display-flex">
 
-                    <input class="text-input" placeholder="Scrivi il film da ricercare" type="text"
-                        v-model="pushText" v-on:keyup.enter="callApi()">
 
-                    <button class="btn" v-on:click="callApi()">Ricerca</button>
+                    <div class="logo">
+                        <img src="img/logo.png" alt="Logo Boolflix">
+                    </div>
 
-                </div>
-                <!-- end Searchbar -->
+                    <!-- Searchbar -->
+                    <div class="searchbar">
 
-                <!-- TEST -->
-                <i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>
+                        <input class="text-input" placeholder="Scrivi il film da ricercare" type="text"
+                            v-model="pushText" v-on:keyup.enter="callApi()">
 
-            </header>
-            <!-- end HEADER -->
+                        <button class="btn" v-on:click="callApi()">Ricerca</button>
 
-            <!-- MAIN -->
-            <main>
+                    </div>
+                    <!-- end Searchbar -->
 
-                <!-- v-if Film view -->
-                <div class="film" v-if="arrayFilms.length > 0">
+
+                </header>
+                <!-- end HEADER -->
+
+                <!-- MAIN -->
+                <main class="display-flex">
+
+
                     <h2>FILM</h2>
+                    <!-- v-if Film view -->
+                    <div v-if="arrayFilms.length > 0">
 
-                    <!-- Single Film -->
-                    <div class="film" v-for="film in arrayFilms">
 
-                        <!-- Poster -->
-                        <div class="poster">
-                            <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
+                        <!-- Single Film -->
+                        <div class="film" v-for="film in arrayFilms">
+
+                            <!-- Poster -->
+                            <div class="poster">
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Title -->
+                            <div class="title">
+                                Titolo: {{film.title}}
+                            </div>
+                            <!-- end Title -->
+
+                            <!-- Original Title -->
+                            <div class="original-title">
+                                Titolo Originale: {{film.original_title}}
+                            </div>
+                            <!-- end Original Title -->
+
+                            <!-- Languages -->
+                            <div class="languages">
+                                Lingua: <img :src="'img/' + imageLanguage(film.original_language)" alt="">
+                                <!-- {{imageLanguage()}} -->
+                            </div>
+                            <!-- Languages -->
+
+                            <!-- Vote -->
+                            <div class="vote">
+
+                                <span v-html="voteStar(film.vote_average)"></span>
+
+                            </div>
+                            <!-- Vote -->
+
                         </div>
-                        <!-- end Poster -->
-
-                        <!-- Title -->
-                        <div class="title">
-                            Titolo: {{film.title}}
-                        </div>
-                        <!-- end Title -->
-
-                        <!-- Original Title -->
-                        <div class="original-title">
-                            Titolo Originale: {{film.original_title}}
-                        </div>
-                        <!-- end Original Title -->
-
-                        <!-- Languages -->
-                        <div class="languages">
-                            Lingua: <img :src="'img/' + imageLanguage(film.original_language)" alt="">
-                            <!-- {{imageLanguage()}} -->
-                        </div>
-                        <!-- Languages -->
-
-                        <!-- Vote -->
-                        <div class="vote">
-
-                            <span v-html="voteStar(film.vote_average)"></span>
-
-                        </div>
-                        <!-- Vote -->
+                        <!-- end Single Film -->
 
                     </div>
-                    <!-- end Single Film -->
+                    <!-- end v-if Film view -->
 
-                </div>
-                <!-- end v-if Film view -->
-
-                <!-- v-if Telefilm view -->
-                <div class="film" v-if="arrayTelefilms.length > 0">
-
+                    
                     <h2>TELEFILM</h2>
-                    <!-- Single Film -->
-                    <div class="film" v-for="telefilm in arrayTelefilms">
+                    <!-- v-if Telefilm view -->
+                    <div v-if="arrayTelefilms.length > 0">
 
-                        <!-- Poster -->
-                        <div class="poster">
-                            <img :src="'https://image.tmdb.org/t/p/w342'+ telefilm.poster_path" alt="">
-                        </div>
-                        <!-- end Poster -->
 
-                        <!-- Title -->
-                        <div class="title">
-                            Titolo: {{telefilm.name}}
-                        </div>
-                        <!-- end Title -->
+                        <!-- Single Telefilm -->
+                        <div class="telefilm" v-for="telefilm in arrayTelefilms">
 
-                        <!-- Original Title -->
-                        <div class="original-title">
-                            Titolo Originale: {{telefilm.original_name}}
-                        </div>
-                        <!-- end Original Title -->
+                            <!-- Poster -->
+                            <div class="poster">
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ telefilm.poster_path" alt="">
+                            </div>
+                            <!-- end Poster -->
 
-                        <!-- Languages -->
-                        <div class="languages">
-                            Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
-                            <!-- {{imageLanguage()}} -->
-                        </div>
-                        <!-- Languages -->
+                            <!-- Title -->
+                            <div class="title">
+                                Titolo: {{telefilm.name}}
+                            </div>
+                            <!-- end Title -->
 
-                        <!-- Vote -->
-                        <div class="vote">
-                            Voto: {{telefilm.vote_average}}
+                            <!-- Original Title -->
+                            <div class="original-title">
+                                Titolo Originale: {{telefilm.original_name}}
+                            </div>
+                            <!-- end Original Title -->
+
+                            <!-- Languages -->
+                            <div class="languages">
+                                Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
+                                <!-- {{imageLanguage()}} -->
+                            </div>
+                            <!-- Languages -->
+
+                            <!-- Vote -->
+                            <div class="vote">
+                                Voto: {{telefilm.vote_average}}
+                            </div>
+                            <!-- Vote -->
+
                         </div>
-                        <!-- Vote -->
+                        <!-- end Single Telefilm -->
 
                     </div>
-                    <!-- end Single Film -->
+                    <!-- end v-if Telefilm view -->
 
-                </div>
-                <!-- end v-if Telefilm view -->
 
-            </main>
-            <!-- MAIN -->
+
+                </main>
+                <!-- MAIN -->
+
+            </div>
+            <!-- End Container -->
 
         </div>
-        <!-- End Container -->
-
 
     </div>
     <!-- end Vue Container -->

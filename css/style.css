@@ -34,16 +34,42 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
+.wrapper {
+    height: 100vh;
+    min-width: 900px;
     padding: 20px 0;
+
     /* test */
-    background-color: antiquewhite;
-    text-align: center;
+    background-color: bisque;
+}
+
+
+.container {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    padding: 20px;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.display-flex {
+    display: flex;
 }
 
 /* HEADER */
+
+header {
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo img {
+    width: 75px;
+    height: auto;
+}
 
 .searchbar .text-input {
     padding: 10px 20px;
@@ -62,12 +88,31 @@ body {
 
 /* MAIN */
 
-.languages img{
+main {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+
+
+.film,
+.telefilm {
+
+   
+
+
+
+}
+
+
+.languages img {
     width: 30px;
     height: auto;
 }
 
-.poster img{
+.poster img {
     width: 150px;
     height: auto;
+
 }
