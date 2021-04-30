@@ -65,13 +65,13 @@
                 <!-- end HEADER -->
 
                 <!-- MAIN -->
-                <main class="display-flex">
+                <main>
 
+                    <h2 v-if="arrayFilms.length > 0">Film</h2>
 
-                    <h2>FILM</h2>
                     <!-- v-if Film view -->
-                    <div v-if="arrayFilms.length > 0">
-
+                    <div class="vue-if-film display-flex"
+                        v-if="arrayFilms.length > 0">
 
                         <!-- Single Film -->
                         <div class="film" v-for="film in arrayFilms">
@@ -82,32 +82,36 @@
                             </div>
                             <!-- end Poster -->
 
-                            <!-- Title -->
-                            <div class="title">
-                                Titolo: {{film.title}}
+                            <!-- Film Text Container -->
+                            <div class="film-container">
+
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: {{film.title}}
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: {{film.original_title}}
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: <img :src="'img/' + imageLanguage(film.original_language)" alt="">
+                                    <!-- {{imageLanguage()}} -->
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+                                    <span v-html="voteStar(film.vote_average)"></span>
+                                </div>
+                                <!-- Vote -->
+
                             </div>
-                            <!-- end Title -->
-
-                            <!-- Original Title -->
-                            <div class="original-title">
-                                Titolo Originale: {{film.original_title}}
-                            </div>
-                            <!-- end Original Title -->
-
-                            <!-- Languages -->
-                            <div class="languages">
-                                Lingua: <img :src="'img/' + imageLanguage(film.original_language)" alt="">
-                                <!-- {{imageLanguage()}} -->
-                            </div>
-                            <!-- Languages -->
-
-                            <!-- Vote -->
-                            <div class="vote">
-
-                                <span v-html="voteStar(film.vote_average)"></span>
-
-                            </div>
-                            <!-- Vote -->
+                            <!-- End Film Text container -->
 
                         </div>
                         <!-- end Single Film -->
@@ -115,11 +119,11 @@
                     </div>
                     <!-- end v-if Film view -->
 
-                    
-                    <h2>TELEFILM</h2>
-                    <!-- v-if Telefilm view -->
-                    <div v-if="arrayTelefilms.length > 0">
 
+                    <h2 v-if="arrayTelefilms.length > 0">Telefilm</h2>
+
+                    <!-- v-if Telefilm view -->
+                    <div class="vue-if-telefilm display-flex" v-if="arrayTelefilms.length > 0">
 
                         <!-- Single Telefilm -->
                         <div class="telefilm" v-for="telefilm in arrayTelefilms">
@@ -130,30 +134,36 @@
                             </div>
                             <!-- end Poster -->
 
-                            <!-- Title -->
-                            <div class="title">
-                                Titolo: {{telefilm.name}}
-                            </div>
-                            <!-- end Title -->
+                            <!-- Telefilm Text Container -->
+                            <div class="telefilm-container">
 
-                            <!-- Original Title -->
-                            <div class="original-title">
-                                Titolo Originale: {{telefilm.original_name}}
-                            </div>
-                            <!-- end Original Title -->
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: {{telefilm.name}}
+                                </div>
+                                <!-- end Title -->
 
-                            <!-- Languages -->
-                            <div class="languages">
-                                Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
-                                <!-- {{imageLanguage()}} -->
-                            </div>
-                            <!-- Languages -->
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: {{telefilm.original_name}}
+                                </div>
+                                <!-- end Original Title -->
 
-                            <!-- Vote -->
-                            <div class="vote">
-                                Voto: {{telefilm.vote_average}}
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
+                                    <!-- {{imageLanguage()}} -->
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+                                    <span v-html="voteStar(telefilm.vote_average)"></span>
+                                </div>
+                                <!-- Vote -->
+
                             </div>
-                            <!-- Vote -->
+                            <!-- end Telefilm Text Container -->
 
                         </div>
                         <!-- end Single Telefilm -->

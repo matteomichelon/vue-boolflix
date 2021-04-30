@@ -10,7 +10,6 @@ var app = new Vue(
             pushText: 'mr robot',
             arrayFilms: [],
             arrayTelefilms: [],
-            hover: false
 
         },
         /* end DATA */
@@ -127,10 +126,6 @@ var app = new Vue(
 
             },
 
-            changeHover () {
-                this.hover = !this.hover;
-                console.log( this.hover );
-            }
 
         },
         /* end METHODS */
