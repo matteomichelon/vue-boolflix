@@ -78,8 +78,9 @@
 
                             <!-- Poster -->
                             <div class="poster"
-                                :class="display"
-                                v-on:mouseenter="posterMouseEnter(index)">
+                                :class="{none : index == activeFilmIndex}"
+                                v-on:mouseenter=" posterMouseEnter(index)"
+                                v-on:mouseleave="posterMouseLeave">
 
                                 <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
 
@@ -87,10 +88,11 @@
                             <!-- end Poster -->
 
                             <!-- Film Text Container -->
-                            <div class="film-container display-none">
+                            <div class="film-container"
+                                :class="{block : index == activeFilmIndex}">
 
                                 <!-- Title -->
-                                <div class="title">
+                                <div class=" title">
                                     Titolo: {{film.title}}
                                 </div>
                                 <!-- end Title -->

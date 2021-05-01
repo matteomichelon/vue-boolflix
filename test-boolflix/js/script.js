@@ -10,9 +10,7 @@ var app = new Vue(
             pushText: 'mr robot',
             arrayFilms: [],
             arrayTelefilms: [],
-            display: {
-                'display-none': false
-            }
+            activeFilmIndex: -1
 
         },
         /* end DATA */
@@ -132,28 +130,12 @@ var app = new Vue(
             },
 
             posterMouseEnter ( indexFilm ) {
-
-                this.arrayFilms.forEach( ( film, index ) => {
-                    if ( index === indexFilm )
-                        this.display[ 'display-none' ] = !this.display[ 'display-none' ];
-                } );
-
+                this.activeFilmIndex = indexFilm;
             },
 
-            posterMouseLeave ( indexFilm ) {
-                this.arrayFilms.forEach( ( film, index ) => {
-                    if ( index === indexFilm )
-                        this.display[ 'display-none' ] = !this.display[ 'display-none' ];
-                } );
+            posterMouseLeave () {
+                this.activeFilmIndex = -1;
             },
-
-            filmContainerMouseEnter ( index ) {
-
-            },
-
-            filmContainerMouseLeave ( index ) {
-
-            }
 
         },
         /* end METHODS */

@@ -74,16 +74,20 @@
                         v-if="arrayFilms.length > 0">
 
                         <!-- Single Film -->
-                        <div class="film" v-for="film in arrayFilms">
+                        <div class="film" v-for="(film, index) in arrayFilms">
 
                             <!-- Poster -->
-                            <div class="poster">
+                            <div class="poster"
+                                :class="{none : index == activeFilmIndex}"
+                                v-on:mouseenter=" posterMouseEnter(index)"
+                                v-on:mouseleave="posterMouseLeave">
                                 <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
                             </div>
                             <!-- end Poster -->
 
                             <!-- Film Text Container -->
-                            <div class="film-container">
+                            <div class="film-container"
+                                :class="{block : index == activeFilmIndex}">
 
                                 <!-- Title -->
                                 <div class="title">
@@ -125,16 +129,21 @@
                     <div class="vue-if-telefilm display-flex" v-if="arrayTelefilms.length > 0">
 
                         <!-- Single Telefilm -->
-                        <div class="telefilm" v-for="telefilm in arrayTelefilms">
+                        <div class="telefilm" v-for="(telefilm, index) in arrayTelefilms">
 
                             <!-- Poster -->
-                            <div class="poster">
+                            <div class="poster"
+                                :class="{none : index == activeFilmIndex}"
+                                v-on:mouseenter=" posterMouseEnter(index)"
+                                v-on:mouseleave="posterMouseLeave">
+
                                 <img :src="'https://image.tmdb.org/t/p/w342'+ telefilm.poster_path" alt="">
                             </div>
                             <!-- end Poster -->
 
                             <!-- Telefilm Text Container -->
-                            <div class="telefilm-container">
+                            <div class="telefilm-container"
+                                :class="{block : index == activeFilmIndex}">
 
                                 <!-- Title -->
                                 <div class="title">
