@@ -80,6 +80,7 @@ var app = new Vue(
 
             // Funzione che ritorna l'immagine della bandiera 
             // rispetto all'"original_language" passato dall'Api
+            /* TODO: carica bandierine rispetto alla lingua caricata */
             imageLanguage ( language ) {
 
                 const ita = 'it';
