@@ -38,9 +38,9 @@ body {
     height: 100vh;
     min-width: 1000px;
     padding: 20px 0;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(163deg, rgba(2, 0, 36, 1) 0%, rgba(93, 225, 110, 1) 35%, rgba(0, 212, 255, 1) 100%);
 
-    /* test */
-    background-color: bisque;
 }
 
 
@@ -67,16 +67,21 @@ header {
 }
 
 .logo img {
-    width: 75px;
+    width: 175px;
     height: auto;
 }
 
 .searchbar .text-input {
-    padding: 10px 20px;
-    min-width: 300px;
-    border-radius: 10px;
-    border-width: 1px;
-    margin-right: 20px;
+    padding: 9px;
+     font-size: 19px;
+     border-width: 0px;
+     border-color: #877e7e;
+     background-color: #f7f3f3;
+     color: #d3a3a3;
+     border-style: solid;
+     border-radius: 15px;
+     box-shadow: 0px 0px 12px rgba(191,150,150,.77);
+     text-shadow: -50px 0px 0px rgba(14,11,11,.0);
 }
 
 .searchbar .btn {

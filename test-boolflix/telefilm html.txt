@@ -1,0 +1,53 @@
+<!-- v-if Telefilm view -->
+                    <div class="vue-if-telefilm display-flex" v-if="arrayTelefilms.length > 0">
+
+                        <!-- Single Telefilm -->
+                        <div class="telefilm" v-for="(telefilm, index) in arrayTelefilms">
+
+                            <!-- Poster -->
+                            <div class="poster"
+                                :class="{none : index == activeFilmIndex}"
+                                v-on:mouseenter=" posterMouseEnter(index)"
+                                v-on:mouseleave="posterMouseLeave">
+
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ telefilm.poster_path" alt="">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Telefilm Text Container -->
+                            <div class="telefilm-container"
+                                :class="{block : index == activeFilmIndex}">
+
+                                <!-- Title -->
+                                <div class="title">
+                                    Titolo: {{telefilm.name}}
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: {{telefilm.original_name}}
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: <img :src="'img/' + imageLanguage(telefilm.original_language)" alt="">
+                                    <!-- {{imageLanguage()}} -->
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+                                    <span v-html="voteStar(telefilm.vote_average)"></span>
+                                </div>
+                                <!-- Vote -->
+
+                            </div>
+                            <!-- end Telefilm Text Container -->
+
+                        </div>
+                        <!-- end Single Telefilm -->
+
+                    </div>
+                    <!-- end v-if Telefilm view -->
