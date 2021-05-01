@@ -73,22 +73,46 @@ header {
 
 .searchbar .text-input {
     padding: 9px;
-     font-size: 19px;
-     border-width: 0px;
-     border-color: #877e7e;
-     background-color: #f7f3f3;
-     color: #d3a3a3;
-     border-style: solid;
-     border-radius: 15px;
-     box-shadow: 0px 0px 12px rgba(191,150,150,.77);
-     text-shadow: -50px 0px 0px rgba(14,11,11,.0);
+    font-size: 19px;
+    border-width: 0px;
+    border-color: #877e7e;
+    background-color: #f7f3f3;
+    color: #d3a3a3;
+    border-style: solid;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px rgba(191, 150, 150, .77);
+    text-shadow: -50px 0px 0px rgba(14, 11, 11, .0);
 }
 
 .searchbar .btn {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border-width: 1px;
+
+    box-shadow: inset 0px 0px 13px -35px #ffffff;
+    background: linear-gradient(to bottom, #ebebeb 5%, #9cd6af 100%);
+    background-color: #ebebeb;
+    border-radius: 15px;
+    border: 1px solid #95cca9;
+    display: inline-block;
     cursor: pointer;
+    color: #a894a8;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 24px;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #ffffff;
+}
+
+.searchbar .btn:hover {
+    background: linear-gradient(to bottom, #9cd6af 5%, #ebebeb 100%);
+    background-color: #9cd6af;
+}
+
+.searchbar .btn:active {
+    position: relative;
+    top: 1px;
+}
+
+cursor: pointer;
 }
 
 /* MAIN */
