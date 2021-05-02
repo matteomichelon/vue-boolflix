@@ -20,7 +20,7 @@ img {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #ffffff  ;
 }
 
 li {
@@ -32,15 +32,12 @@ li {
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .wrapper {
     height: 100vh;
     min-width: 1000px;
-    padding: 20px 0;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(163deg, rgba(2, 0, 36, 1) 0%, rgba(93, 225, 110, 1) 35%, rgba(0, 212, 255, 1) 100%);
-
 }
 
 
@@ -51,6 +48,10 @@ body {
     padding: 20px;
     flex-direction: column;
     overflow: hidden;
+}
+.container h2{
+    font-size: 50px;
+    color: #032541;
 }
 
 .display-flex {
@@ -64,11 +65,47 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 80px;
+    background-color: #032541;
+    justify-content: space-around;
 }
+
+header li{
+    padding-left: 25px;
+}
+
 
 .logo img {
     width: 175px;
     height: auto;
+}
+
+/* MAIN */
+
+/* Preview */
+
+.preview{
+    background-image: url(../img/background.jpg);
+    height: 550px;
+    background-size: cover;
+    position: relative;
+    color: white;
+    text-align: right;
+    color: #032541;
+}
+
+.preview h2{
+    padding-left: 66%;
+    line-height: 1.9;
+}
+
+.container-preview{
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.searchbar{
+    padding: 80px 0;
 }
 
 .searchbar .text-input {
@@ -94,12 +131,12 @@ header {
     display: inline-block;
     cursor: pointer;
     color: #a894a8;
-    font-family: Arial;
     font-size: 15px;
     font-weight: bold;
     padding: 8px 24px;
     text-decoration: none;
     text-shadow: 0px 0px 0px #ffffff;
+    margin-left: 25px;
 }
 
 .searchbar .btn:hover {
@@ -110,15 +147,6 @@ header {
 .searchbar .btn:active {
     position: relative;
     top: 1px;
-}
-
-cursor: pointer;
-}
-
-/* MAIN */
-
-main {
-    overflow-y: scroll;
 }
 
 .vue-if-film,
@@ -153,6 +181,7 @@ main {
     width: 150px;
     height: 100%;
     position: absolute;
+    
 }
 
 
@@ -164,7 +193,7 @@ main {
 .poster img {
     width: 150px;
     height: auto;
-
+    border-radius: 25px;
 }
 
 .none {

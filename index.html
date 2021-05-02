@@ -38,36 +38,65 @@
 
         <div class="wrapper">
 
-            <!-- Container -->
-            <div class="container display-flex">
+            <!-- HEADER -->
+            <header class="display-flex">
 
-                <!-- HEADER -->
-                <header class="display-flex">
+                <!-- logo -->
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo Boolflix">
+                </div>
+                <!-- end Logo -->
 
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#">Movies</a></li>
+                        <li><a href="#">Tv Show</a></li>
+                        <li><a href="#">People</a></li>
+                        <li><a href="#">More</a></li>
+                    </ul>
+                </nav>
+                <!-- end Nav -->
 
-                    <div class="logo">
-                        <img src="img/logo.png" alt="Logo Boolflix">
+            </header>
+            <!-- end HEADER -->
+
+            <!-- MAIN -->
+            <main>
+
+                <!-- Preview -->
+                <div class="preview">
+
+                    <!-- Container preview -->
+                    <div class="container-preview">
+
+                        <h1>Welcome</h1>
+
+                        <h2>Esplora il sito per ricercare migliaia di titoli tra film e serie tv</h2>
+
+                        <!-- Searchbar -->
+                        <div class="searchbar">
+
+                            <input class="text-input" placeholder="Scrivi il film da ricercare" type="text"
+                                v-model="pushText" v-on:keyup.enter="callApi()">
+
+                            <button class="btn" v-on:click="callApi()">Ricerca</button>
+
+                        </div>
+                        <!-- end Searchbar -->
+
                     </div>
+                    <!-- Container preview -->
 
-                    <!-- Searchbar -->
-                    <div class="searchbar">
+                </div>
+                <!-- end Preview -->
 
-                        <input class="text-input" placeholder="Scrivi il film da ricercare" type="text"
-                            v-model="pushText" v-on:keyup.enter="callApi()">
+                <!-- Container -->
+                <div class="container display-flex">
 
-                        <button class="btn" v-on:click="callApi()">Ricerca</button>
+                    <!-- HERE h2: v-if="arrayFilms.length > 0" -->
 
-                    </div>
-                    <!-- end Searchbar -->
-
-
-                </header>
-                <!-- end HEADER -->
-
-                <!-- MAIN -->
-                <main>
-
-                    <h2 v-if="arrayFilms.length > 0">Film</h2>
+                    <h2 >Film</h2>
 
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
@@ -109,8 +138,6 @@
                                 </div>
                                 <!-- Languages -->
 
-
-
                                 <!-- Vote -->
                                 <div class="vote">
                                     <span v-html="voteStar(film.vote_average)"></span>
@@ -126,18 +153,17 @@
                     </div>
                     <!-- end v-if Film view -->
 
-
                     <h2 v-if="arrayTelefilms.length > 0">Telefilm</h2>
 
                     <!-- TODO HERE TELEFILM -->
 
+                </div>
+                <!-- End Container -->
+
+            </main>
+            <!-- MAIN -->
 
 
-                </main>
-                <!-- MAIN -->
-
-            </div>
-            <!-- End Container -->
 
         </div>
 
