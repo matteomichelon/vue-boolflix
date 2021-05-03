@@ -124,38 +124,42 @@
                                 v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
 
-                                <!-- Title -->
-                                <div class="title">
-                                    <span>Titolo:</span> {{film.title}}
-                                </div>
-                                <!-- end Title -->
+                                <div class="film-description">
 
-                                <!-- Original Title -->
-                                <div class="original-title">
-                                    <span>Titolo Originale:</span> {{film.original_title}}
-                                </div>
-                                <!-- end Original Title -->
+                                    <!-- Title -->
+                                    <div class="title">
+                                        <span>Titolo:</span> {{film.title}}
+                                    </div>
+                                    <!-- end Title -->
 
-                                <!-- Languages -->
-                                <div class="languages">
-                                    <span>Lingua:</span> <img
-                                        :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
-                                        :alt="'Flag icon of ' + film.original_language">
-                                </div>
-                                <!-- Languages -->
+                                    <!-- Original Title -->
+                                    <div class="original-title">
+                                        <span>Titolo Originale:</span> {{film.original_title}}
+                                    </div>
+                                    <!-- end Original Title -->
 
-                                <!-- Vote -->
-                                <div class="vote">
-                                    <span>Voto:</span> <span v-html="voteStar(film.vote_average)"></span>
-                                </div>
-                                <!-- Vote -->
+                                    <!-- Languages -->
+                                    <div class="languages">
+                                        <span>Lingua:</span> <img
+                                            :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                            :alt="'Flag icon of ' + film.original_language">
+                                    </div>
+                                    <!-- Languages -->
 
-                                <!-- Overview -->
-                                <div class="overview"
-                                    v-if="film.overview != ''">
-                                    <span>Overview:</span> {{filmOverview(film.overview)}}
+                                    <!-- Vote -->
+                                    <div class="vote">
+                                        <span>Voto:</span> <span v-html="voteStar(film.vote_average)"></span>
+                                    </div>
+                                    <!-- Vote -->
+
+                                    <!-- Overview -->
+                                    <div class="overview"
+                                        v-if="film.overview != ''">
+                                        <span>Overview:</span> {{filmOverview(film.overview)}}
+                                    </div>
+                                    <!-- Overview -->
+
                                 </div>
-                                <!-- Overview -->
 
                             </div>
                             <!-- End Film Text container -->

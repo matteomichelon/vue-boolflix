@@ -155,10 +155,10 @@ var app = new Vue(
 
             filmOverview ( overview ) {
 
-                let overviewSlice = overview.slice( 0, 40 );
+                let overviewSlice = overview.slice( 0, 200 );
 
 
-                if ( overview.length >= 40 ) {
+                if ( overview.length >= 200 ) {
                     overviewSlice += '...';
                 }
 
