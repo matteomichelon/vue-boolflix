@@ -10,7 +10,7 @@ var app = new Vue(
             pushText: 'mr robot',
             arrayFilms: [],
             arrayTelefilms: [],
-            activeFilmIndex: -1
+            filmId: ''
 
         },
         /* end DATA */
@@ -132,11 +132,11 @@ var app = new Vue(
 
             posterMouseEnter ( indexFilm ) {
                 console.log(indexFilm)
-                this.activeFilmIndex = indexFilm;
+                this.filmId = indexFilm;
             },
 
             posterMouseLeave () {
-                this.activeFilmIndex = -1;
+                this.filmId = '';
             }
 
         },

@@ -96,7 +96,7 @@
 
                     <!-- HERE h2: v-if="arrayFilms.length > 0" -->
 
-                    <h2 >Film</h2>
+                    <h2>Film</h2>
 
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
@@ -107,8 +107,8 @@
 
                             <!-- Poster -->
                             <div class="poster"
-                                :class="{none : index == activeFilmIndex}"
-                                v-on:mouseenter=" posterMouseEnter(index)"
+                                :class="{none : film.id == filmId}"
+                                v-on:mouseenter=" posterMouseEnter(film.id)"
                                 v-on:mouseleave="posterMouseLeave">
                                 <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
                             </div>
@@ -116,7 +116,9 @@
 
                             <!-- Film Text Container -->
                             <div class="film-container"
-                                :class="{block : index == activeFilmIndex}">
+                                v-on:mouseenter=" posterMouseEnter(film.id)"
+                                v-on:mouseleave="posterMouseLeave"
+                                :class="{block : film.id == filmId}">
 
                                 <!-- Title -->
                                 <div class="title">
