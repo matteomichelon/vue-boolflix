@@ -107,10 +107,10 @@
 
                             <!-- Poster -->
                             <!-- TEST HERE -->
-                            <div class="poster none">
-                                <!-- :class="{none : film.id == filmId}"
+                            <div class="poster"
+                                :class="{none : film.id == filmId}"
                                 v-on:mouseenter=" mouseEnter(film.id)"
-                                v-on:mouseleave="mouseLeave" -->
+                                v-on:mouseleave="mouseLeave">
                                 <img
                                     :class="{'img-null' : film.poster_path == null}"
                                     :src="posterImage(film.poster_path)"
@@ -120,7 +120,7 @@
 
                             <!-- Film Text Container -->
                             <!-- Attenzione se copio e incollo nome attributi -->
-                            <div class="film-container block"
+                            <div class="film-container"
                                 v-on:mouseenter=" mouseEnter(film.id)"
                                 v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
@@ -171,20 +171,38 @@
                                     <!-- More Info -->
                                     <div class="more-info">
 
+                                        <!-- Click info -->
                                         <span
                                             v-on:mouseenter=" mouseEnter(film.id)"
-                                            v-on:click="infoCast(film.id)">
+                                            v-on:click="infoCast(film.id), genres(film.id)">
                                             More info...click me
                                         </span>
+                                        <!-- end Click info -->
+
+                                        <!-- Box Info -->
                                         <div class="box-info"
                                             v-if="arrayCast.length > 0 && film.id == filmId"
                                             v-on:mouseleave="mouseLeave">
+
+                                            <!-- Actor -->
                                             <h3>Attori</h3>
                                             <div class="cast-container"
                                                 v-for="(cast, index) in arrayCast">
                                                 <div v-if="index <= 4">{{cast.name}}</div>
                                             </div>
+                                            <!-- end Actor -->
+
+                                            <!-- Genre -->
+                                            <h3>Genere</h3>
+                                            <div class="genres"
+                                                v-for="(genre, index) in arrayGendersId">
+                                                <span><i class="fas fa-circle"></i> </span> {{genre.name}}
+                                            </div>
+                                            <!-- end Genre -->
+
                                         </div>
+                                        <!-- end Box Info -->
+
                                     </div>
                                     <!-- end More Info -->
 
@@ -274,6 +292,44 @@
                                     </div>
                                     <!-- Overview -->
 
+                                    <!-- More Info -->
+                                    <div class="more-info">
+
+                                        <!-- Click info -->
+                                        <span
+                                            v-on:mouseenter=" mouseEnter(film.id)"
+                                            v-on:click="infoCast(film.id), genres(film.id)">
+                                            More info...click me
+                                        </span>
+                                        <!-- end Click info -->
+
+                                        <!-- Box Info -->
+                                        <div class="box-info"
+                                            v-if="arrayCast.length > 0 && film.id == filmId"
+                                            v-on:mouseleave="mouseLeave">
+
+                                            <!-- Actor -->
+                                            <h3>Attori</h3>
+                                            <div class="cast-container"
+                                                v-for="(cast, index) in arrayCast">
+                                                <div v-if="index <= 4">{{cast.name}}</div>
+                                            </div>
+                                            <!-- end Actor -->
+
+                                            <!-- Genre -->
+                                            <h3>Genere</h3>
+                                            <div class="genres"
+                                                v-for="(genre, index) in arrayGendersId">
+                                                <span><i class="fas fa-circle"></i> </span> {{genre.name}}
+                                            </div>
+                                            <!-- end Genre -->
+
+                                        </div>
+                                        <!-- end Box Info -->
+
+                                    </div>
+                                    <!-- end More Info -->
+
                                 </div>
                                 <!-- end Film Description -->
 
@@ -286,8 +342,6 @@
                     </div>
                     <!-- end v-if Film view -->
                     <!-- end TELEFILM -->
-
-
 
                 </div>
                 <!-- End Container -->

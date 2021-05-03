@@ -11,7 +11,8 @@ var app = new Vue(
             arrayFilms: [],
             arrayTelefilms: [],
             filmId: '',
-            arrayCast: []
+            arrayCast: [],
+            arrayGendersId:[]
 
         },
         /* end DATA */
@@ -78,9 +79,10 @@ var app = new Vue(
                     } );
             },
 
-            infoCast (film_id) {
+            
+            infoCast ( film_id ) {
                 axios
-                    .get( 'https://api.themoviedb.org/3/movie/' + film_id +'/casts', {
+                    .get( 'https://api.themoviedb.org/3/movie/' + film_id + '/casts', {
 
                         params: {
                             api_key: '3414ee67882ebd632253f10b916225d8',
@@ -89,9 +91,24 @@ var app = new Vue(
 
                     } )
                     .then( ( response ) => {
+                        console.log(response);
                         this.arrayCast = response.data.cast;
-                        console.log( this.arrayCast);
-                        console.log(this.filmId)
+                    } );
+            },
+
+            genres ( film_id ) {
+
+                axios
+                    .get( 'https://api.themoviedb.org/3/movie/' + film_id, {
+
+                        params: {
+                            api_key: '3414ee67882ebd632253f10b916225d8',
+                            language: 'it',
+                        }
+
+                    } )
+                    .then( ( response ) => {
+                        this.arrayGendersId = response.data.genres;
                     } );
             },
 
@@ -110,7 +127,6 @@ var app = new Vue(
 
                 return url;
             },
-
 
             // Funzione che ritorna l'immagine della bandiera 
             // rispetto all'"original_language" passato dall'Api
@@ -154,7 +170,7 @@ var app = new Vue(
             // della variabile filmId
             mouseLeave () {
                 this.filmId = '';
-                this.arrayCast =[];
+                this.arrayCast = [];
             },
 
             // Funzione che riceve una overview di un film

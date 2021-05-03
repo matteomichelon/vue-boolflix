@@ -189,7 +189,8 @@ header li {
 .languages > span,
 .vote > span,
 .overview > span,
-.more-info > span {
+.more-info > span,
+.genres > span {
     font-weight: bold;
 }
 
@@ -250,7 +251,11 @@ header li {
     padding: 4px 15px;
     background-color: white;
     z-index: 2;
+    -webkit-box-shadow: -1px 2px 26px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: -1px 2px 26px 18px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
 
-    /* Test */
-    border: 1px solid black;
+.genres i {
+    font-size: 8px;
 }
