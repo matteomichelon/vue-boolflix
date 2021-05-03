@@ -130,9 +130,8 @@ var app = new Vue(
 
             },
 
-            posterMouseEnter ( indexFilm ) {
-                console.log(indexFilm)
-                this.filmId = indexFilm;
+            posterMouseEnter ( idFilm ) {
+                this.filmId = idFilm;
             },
 
             posterMouseLeave () {
