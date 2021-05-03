@@ -170,20 +170,20 @@
 
                                     <!-- More Info -->
                                     <div class="more-info">
-                                        <!-- TEST HERE -->
-                                        <span>
-                                           <!--  v-on:mouseenter=" mouseEnter(film.id)"
-                                            v-on:click="infoCast(film.id)" -->
+
+                                        <span
+                                            v-on:mouseenter=" mouseEnter(film.id)"
+                                            v-on:click="infoCast(film.id)">
                                             More info...click me
                                         </span>
-                                        <div class="box-info">
-                                            <!-- v-if="arrayCast.length > 0 && film.id == filmId"
-                                            v-on:mouseleave="mouseLeave"> -->
-                                            <div>test</div>
-                                            <div>test</div>
-                                            <div>test</div>
-                                            <div>test</div>
-                                            <div>test</div>
+                                        <div class="box-info"
+                                            v-if="arrayCast.length > 0 && film.id == filmId"
+                                            v-on:mouseleave="mouseLeave">
+                                            <h3>Attori</h3>
+                                            <div class="cast-container"
+                                                v-for="(cast, index) in arrayCast">
+                                                <div v-if="index <= 4">{{cast.name}}</div>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- end More Info -->

@@ -243,10 +243,13 @@ header li {
 
 .box-info {
     position: absolute;
+    width: 180px;
+    height: auto;
     bottom: 25px;
     left: 70px;
     padding: 4px 15px;
     background-color: white;
+    z-index: 2;
 
     /* Test */
     border: 1px solid black;
