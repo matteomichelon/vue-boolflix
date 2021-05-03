@@ -106,10 +106,11 @@
                         <div class="film" v-for="film in arrayFilms">
 
                             <!-- Poster -->
-                            <div class="poster"
-                                :class="{none : film.id == filmId}"
+                            <!-- TEST HERE -->
+                            <div class="poster none">
+                                <!-- :class="{none : film.id == filmId}"
                                 v-on:mouseenter=" mouseEnter(film.id)"
-                                v-on:mouseleave="mouseLeave">
+                                v-on:mouseleave="mouseLeave" -->
                                 <img
                                     :class="{'img-null' : film.poster_path == null}"
                                     :src="posterImage(film.poster_path)"
@@ -119,7 +120,7 @@
 
                             <!-- Film Text Container -->
                             <!-- Attenzione se copio e incollo nome attributi -->
-                            <div class="film-container"
+                            <div class="film-container block"
                                 v-on:mouseenter=" mouseEnter(film.id)"
                                 v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
@@ -166,6 +167,26 @@
                                         <span>Overview:</span> {{filmOverview(film.overview)}}
                                     </div>
                                     <!-- Overview -->
+
+                                    <!-- More Info -->
+                                    <div class="more-info">
+                                        <!-- TEST HERE -->
+                                        <span>
+                                           <!--  v-on:mouseenter=" mouseEnter(film.id)"
+                                            v-on:click="infoCast(film.id)" -->
+                                            More info...click me
+                                        </span>
+                                        <div class="box-info">
+                                            <!-- v-if="arrayCast.length > 0 && film.id == filmId"
+                                            v-on:mouseleave="mouseLeave"> -->
+                                            <div>test</div>
+                                            <div>test</div>
+                                            <div>test</div>
+                                            <div>test</div>
+                                            <div>test</div>
+                                        </div>
+                                    </div>
+                                    <!-- end More Info -->
 
                                 </div>
                                 <!-- end Film Description -->
@@ -215,19 +236,20 @@
                                     <!-- Title -->
                                     <!-- Attenzione se copio e incollo nome attributi -->
                                     <div class="title">
-                                       <span>Titolo:</span> {{film.name}}
+                                        <span>Titolo:</span> {{film.name}}
                                     </div>
                                     <!-- end Title -->
 
                                     <!-- Original Title -->
                                     <div class="original-title">
-                                      <span>Titolo Originale:</span> {{film.original_name}}
+                                        <span>Titolo Originale:</span> {{film.original_name}}
                                     </div>
                                     <!-- end Original Title -->
 
                                     <!-- Languages -->
                                     <div class="languages">
-                                      <span>Lingua:</span> <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                        <span>Lingua:</span> <img
+                                            :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
                                             :alt="'Flag icon of ' + film.original_language">
                                     </div>
                                     <!-- Languages -->

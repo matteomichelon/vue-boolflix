@@ -10,7 +10,8 @@ var app = new Vue(
             pushText: 'paparazzi',
             arrayFilms: [],
             arrayTelefilms: [],
-            filmId: ''
+            filmId: '',
+            arrayCast: []
 
         },
         /* end DATA */
@@ -77,10 +78,27 @@ var app = new Vue(
                     } );
             },
 
+            infoCast (film_id) {
+                axios
+                    .get( 'https://api.themoviedb.org/3/movie/' + film_id +'/casts', {
+
+                        params: {
+                            api_key: '3414ee67882ebd632253f10b916225d8',
+                            language: 'it',
+                        }
+
+                    } )
+                    .then( ( response ) => {
+                        this.arrayCast = response.data.cast;
+                        console.log( this.arrayCast);
+                        console.log(this.filmId)
+                    } );
+            },
+
+            // Funzione per inserire il poster del film
+            // Se il poster non è presente dalla chiamata API 
+            // inseriamo l'immmagine di default
             posterImage ( posterPath ) {
-
-
-
                 let url = 'https://image.tmdb.org/t/p/w342';
                 const nullImage = 'img/null.jpg';
 
@@ -96,7 +114,6 @@ var app = new Vue(
 
             // Funzione che ritorna l'immagine della bandiera 
             // rispetto all'"original_language" passato dall'Api
-            /* TODO: carica bandierine rispetto alla lingua caricata */
             imageLanguage ( language ) {
 
                 let flag = 'europe';
@@ -127,20 +144,26 @@ var app = new Vue(
 
             },
 
+            // Funzione ricevente un codice id univoco
+            // e cambia il valore della variabile filmId
             mouseEnter ( idFilm ) {
                 this.filmId = idFilm;
             },
 
+            // Funzione che ritorna il valore orifinale 
+            // della variabile filmId
             mouseLeave () {
                 this.filmId = '';
+                this.arrayCast =[];
             },
 
+            // Funzione che riceve una overview di un film
+            // e ne ritorna le prime 100 lettere
             filmOverview ( overview ) {
 
-                let overviewSlice = overview.slice( 0, 200 );
+                let overviewSlice = overview.slice( 0, 100 );
 
-
-                if ( overview.length >= 200 ) {
+                if ( overview.length >= 100 ) {
                     overviewSlice += '...';
                 }
 
@@ -289,6 +312,12 @@ piene (o mezze vuote :P)
 /* Mileston 4.2 */
 // 3-  Andando con il mouse sopra una card (on hover), appaiono le informazioni
 // aggiuntive già prese nei punti precedenti più la overview
+
+/* Mileston 5 */
+// Partendo da un film o da una serie, richiedere all'API quali sono gli attori che fanno
+// parte del cast aggiungendo alla nostra scheda Film / Serie SOLO i primi 5 restituiti
+// dall’API con Nome e Cognome, e i generi associati al film con questo schema:
+// “Genere 1, Genere 2, …”.
 
 
 

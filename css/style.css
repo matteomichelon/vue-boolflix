@@ -172,33 +172,25 @@ header li {
     height: 100%;
     display: none;
     padding: 10px;
-
+    position: relative;
 }
 
 .film-description {
     width: 100%;
     height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     margin: auto;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: left;
     line-height: 1.9;
-    border-radius: 25px;
 }
 
 .title > span,
 .original-title > span,
 .languages > span,
 .vote > span,
-.overview > span {
+.overview > span,
+.more-info > span {
     font-weight: bold;
-}
-
-.overview {
-    overflow-y: scroll;
 }
 
 .poster {
@@ -235,4 +227,27 @@ header li {
 
 .block {
     display: block;
+}
+
+.more-info {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+}
+
+.more-info > span {
+    cursor: pointer;
+    color: darkgreen;
+}
+
+
+.box-info {
+    position: absolute;
+    bottom: 25px;
+    left: 70px;
+    padding: 4px 15px;
+    background-color: white;
+
+    /* Test */
+    border: 1px solid black;
 }
