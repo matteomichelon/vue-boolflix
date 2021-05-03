@@ -94,27 +94,29 @@
                 <!-- Container -->
                 <div class="container display-flex">
 
-                    <!-- HERE h2: v-if="arrayFilms.length > 0" -->
+                    <h2 v-if="arrayFilms.length > 0">Film</h2>
 
-                    <h2>Film</h2>
-
+                    <!-- FILM -->
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
                         v-if="arrayFilms.length > 0">
 
                         <!-- Single Film -->
-                        <div class="film" v-for="(film, index) in arrayFilms">
+                        <!-- Attenzione cambiare nome array con copia\incolla -->
+                        <div class="film" v-for="film in arrayFilms">
 
                             <!-- Poster -->
                             <div class="poster"
                                 :class="{none : film.id == filmId}"
                                 v-on:mouseenter=" posterMouseEnter(film.id)"
                                 v-on:mouseleave="posterMouseLeave">
-                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path" alt="">
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path"
+                                    :alt="'Poster of ' + film.title ">
                             </div>
                             <!-- end Poster -->
 
                             <!-- Film Text Container -->
+                            <!-- Attenzione se copio e incollo nome attributi -->
                             <div class="film-container"
                                 v-on:mouseenter=" posterMouseEnter(film.id)"
                                 v-on:mouseleave="posterMouseLeave"
@@ -134,9 +136,8 @@
 
                                 <!-- Languages -->
                                 <div class="languages">
-                                    Lingua: <img :src="'img/' + imageLanguage(film.original_language)" alt="">
-                                    <!-- TEST TODO -->
-                                    <img src="img/languageFlag/it.svg" alt="">
+                                    Lingua: <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                        :alt="'Flag icon of ' + film.original_language">
                                 </div>
                                 <!-- Languages -->
 
@@ -154,10 +155,72 @@
 
                     </div>
                     <!-- end v-if Film view -->
+                    <!-- end FILM -->
 
                     <h2 v-if="arrayTelefilms.length > 0">Telefilm</h2>
 
-                    <!-- TODO HERE TELEFILM -->
+                    <!-- TELEFILM -->
+                    <!-- v-if Film view -->
+                    <div class="vue-if-film display-flex"
+                        v-if="arrayFilms.length > 0">
+
+                        <!-- Single Film -->
+                        <!-- Attenzione cambiare nome array con copia\incolla -->
+                        <div class="film" v-for="film in arrayTelefilms">
+
+                            <!-- Poster -->
+                            <div class="poster"
+                                :class="{none : film.id == filmId}"
+                                v-on:mouseenter=" posterMouseEnter(film.id)"
+                                v-on:mouseleave="posterMouseLeave">
+                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path"
+                                    :alt="'Poster of ' + film.name">
+                            </div>
+                            <!-- end Poster -->
+
+                            <!-- Film Text Container -->
+                            <div class="film-container"
+                                v-on:mouseenter=" posterMouseEnter(film.id)"
+                                v-on:mouseleave="posterMouseLeave"
+                                :class="{block : film.id == filmId}">
+
+                                <!-- Title -->
+                                <!-- Attenzione se copio e incollo nome attributi -->
+                                <div class="title">
+                                    Titolo: {{film.name}}
+                                </div>
+                                <!-- end Title -->
+
+                                <!-- Original Title -->
+                                <div class="original-title">
+                                    Titolo Originale: {{film.original_name}}
+                                </div>
+                                <!-- end Original Title -->
+
+                                <!-- Languages -->
+                                <div class="languages">
+                                    Lingua: <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                        :alt="'Flag icon of ' + film.original_language">
+                                </div>
+                                <!-- Languages -->
+
+                                <!-- Vote -->
+                                <div class="vote">
+                                    <span v-html="voteStar(film.vote_average)"></span>
+                                </div>
+                                <!-- Vote -->
+
+                            </div>
+                            <!-- End Film Text container -->
+
+                        </div>
+                        <!-- end Single Film -->
+
+                    </div>
+                    <!-- end v-if Film view -->
+                    <!-- end TELEFILM -->
+
+
 
                 </div>
                 <!-- End Container -->

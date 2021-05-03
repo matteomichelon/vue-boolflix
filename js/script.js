@@ -83,18 +83,17 @@ var app = new Vue(
             /* TODO: carica bandierine rispetto alla lingua caricata */
             imageLanguage ( language ) {
 
-                const ita = 'it';
-                const eng = 'en';
+                let flag = 'europe';
+                const english = 'gb';
+                const italian = 'it';                
 
-                let result = 'mondo.jpg';
-
-                if ( language === ita ) {
-                    result = 'ita.png';
-                } else if ( language === eng ) {
-                    result = 'eng.jpg';
+                if ( language === 'en' ) {
+                    flag = english
+                } else if ( language === 'it' ) {
+                    flag = italian
                 }
+                return flag;
 
-                return result;
             },
 
             // Funzione per la transizione da voto in decimale a 
