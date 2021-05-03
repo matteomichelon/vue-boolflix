@@ -1,9 +1,3 @@
-/*  
-    @media screen and (max-width: 768px) {}
-    @media screen and (min-width:769px) and (max-width:991px) {}
-    @media screen and (min-width: 992px) {}
-*/
-
 /* RESET */
 
 * {
@@ -123,7 +117,6 @@ header li {
 }
 
 .searchbar .btn {
-
     box-shadow: inset 0px 0px 13px -35px #ffffff;
     background: linear-gradient(to bottom, #ebebeb 5%, #9cd6af 100%);
     background-color: #ebebeb;
@@ -170,6 +163,7 @@ header li {
 .film-container {
     width: 100%;
     height: 100%;
+    top: 20px;
     display: none;
     padding: 10px;
     position: relative;
@@ -197,9 +191,7 @@ header li {
 .poster {
     width: 100%;
     height: 100%;
-
 }
-
 
 .languages img {
     width: 30px;
@@ -218,7 +210,6 @@ header li {
 }
 
 .poster img.img-null {
-
     width: 60%;
 }
 
@@ -232,8 +223,8 @@ header li {
 
 .more-info {
     position: absolute;
-    bottom: 50px;
-    left: 0;
+    bottom: 75px;
+    left: 10px;
 }
 
 .more-info > span {
@@ -247,8 +238,8 @@ header li {
     width: 180px;
     height: auto;
     bottom: 25px;
-    left: 70px;
-    padding: 4px 15px;
+    left: 40px;
+    padding: 15px;
     background-color: white;
     z-index: 2;
     -webkit-box-shadow: -1px 2px 26px 18px rgba(0, 0, 0, 0.3);

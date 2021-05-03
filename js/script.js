@@ -7,12 +7,12 @@ var app = new Vue(
         /* DATA */
         data: {
 
-            pushText: 'paparazzi',
+            pushText: '',
             arrayFilms: [],
             arrayTelefilms: [],
             filmId: '',
             arrayCast: [],
-            arrayGendersId:[]
+            arrayGendersId: []
 
         },
         /* end DATA */
@@ -79,7 +79,8 @@ var app = new Vue(
                     } );
             },
 
-            
+            // Ricerca Cast specifico id passato come parametro
+            // /id_film/casts       
             infoCast ( film_id ) {
                 axios
                     .get( 'https://api.themoviedb.org/3/movie/' + film_id + '/casts', {
@@ -91,13 +92,13 @@ var app = new Vue(
 
                     } )
                     .then( ( response ) => {
-                        console.log(response);
                         this.arrayCast = response.data.cast;
                     } );
             },
 
+            // Ricerca genere film in riferimento id passato come parametro
+            // /id_film
             genres ( film_id ) {
-
                 axios
                     .get( 'https://api.themoviedb.org/3/movie/' + film_id, {
 
