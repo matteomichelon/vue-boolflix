@@ -150,24 +150,24 @@ header li {
     top: 1px;
 }
 
-.vue-if-film,
-.vue-if-telefilm {
+/* Container Film/Telefilm */
+
+.vue-if-film {
     padding: 20px;
     flex-wrap: wrap;
     text-align: center;
 }
 
 
-.film,
-.telefilm {
+.film {
     height: 250px;
     padding: 15px;
     width: calc(100% / 5);
     position: relative;
+    overflow: hidden;
 }
 
-.film-container,
-.telefilm-container {
+.film-container {
     width: 150px;
     height: auto;
     position: absolute;
@@ -176,6 +176,18 @@ header li {
     font-size: 12px;
     line-height: 1.9;
     display: none;
+}
+
+.title > span,
+.original-title > span,
+.languages > span,
+.vote > span,
+.overview > span {
+    font-weight: bold;
+}
+
+.overview {
+    overflow-y: auto;
 }
 
 .poster {

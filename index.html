@@ -126,28 +126,36 @@
 
                                 <!-- Title -->
                                 <div class="title">
-                                    Titolo: {{film.title}}
+                                    <span>Titolo:</span> {{film.title}}
                                 </div>
                                 <!-- end Title -->
 
                                 <!-- Original Title -->
                                 <div class="original-title">
-                                    Titolo Originale: {{film.original_title}}
+                                    <span>Titolo Originale:</span> {{film.original_title}}
                                 </div>
                                 <!-- end Original Title -->
 
                                 <!-- Languages -->
                                 <div class="languages">
-                                    Lingua: <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                    <span>Lingua:</span> <img
+                                        :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
                                         :alt="'Flag icon of ' + film.original_language">
                                 </div>
                                 <!-- Languages -->
 
                                 <!-- Vote -->
                                 <div class="vote">
-                                    <span v-html="voteStar(film.vote_average)"></span>
+                                    <span>Voto:</span> <span v-html="voteStar(film.vote_average)"></span>
                                 </div>
                                 <!-- Vote -->
+
+                                <!-- Overview -->
+                                <div class="overview"
+                                    v-if="film.overview != ''">
+                                    <span>Overview:</span> {{filmOverview(film.overview)}}
+                                </div>
+                                <!-- Overview -->
 
                             </div>
                             <!-- End Film Text container -->
@@ -164,7 +172,7 @@
                     <!-- TELEFILM -->
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
-                        v-if="arrayFilms.length > 0">
+                        v-if="arrayTelefilms.length > 0">
 
                         <!-- Single Film -->
                         <!-- Attenzione cambiare nome array con copia\incolla -->
@@ -213,6 +221,13 @@
                                     <span v-html="voteStar(film.vote_average)"></span>
                                 </div>
                                 <!-- Vote -->
+
+                                <!-- Overview -->
+                                <div class="overview"
+                                    v-if="film.overview != ''">
+                                    <span>Overview:</span> {{filmOverview(film.overview)}}
+                                </div>
+                                <!-- Overview -->
 
                             </div>
                             <!-- End Film Text container -->

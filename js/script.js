@@ -79,7 +79,7 @@ var app = new Vue(
 
             posterImage ( posterPath ) {
 
-                
+
 
                 let url = 'https://image.tmdb.org/t/p/w342';
                 const nullImage = 'img/null.jpg';
@@ -151,6 +151,18 @@ var app = new Vue(
 
             mouseLeave () {
                 this.filmId = '';
+            },
+
+            filmOverview ( overview ) {
+
+                let overviewSlice = overview.slice( 0, 40 );
+
+
+                if ( overview.length >= 40 ) {
+                    overviewSlice += '...';
+                }
+
+                return overviewSlice;
             }
 
         },
