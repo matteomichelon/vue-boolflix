@@ -112,36 +112,18 @@ var app = new Vue(
 
             },
 
-            // Funzione per la transizione da voto in decimale a 
-            // numero di stelline colorate
-            // Può ricevere come parametro il voto in formato decimale da 0 a 10
-            // Ritorna un codice html di stelline colorate 
-            // ( con Vue utilizzare in html v-html="" )
-            /* TODO: da sistemare con v-for su html */
+            // Funzione che mi ritorna un numero 
+            // per eccesso da 1 a 5
+            // riceve numeri da 1 a 10 
             voteStar ( vote ) {
-
-                // Dichiaro il numero massimo di stelline
-                const numberOfStar = 5;
 
                 // Trasformo il numero ricevuto come parametro in un voto da 1 a 5
                 let newVote = ( vote / 2 );
 
                 // Calcolo il numero per eccesso
                 const excessVote = Math.ceil( newVote );
-                let star = '';
 
-                // Compilo il mumero di stelline colorate secondo il numero massimo di stelline
-                for ( let i = 1; i <= numberOfStar; i++ ) {
-
-                    if ( i <= excessVote ) {
-                        star += `<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>`;
-                    } else {
-                        star += `<i class="fa fa-star" aria-hidden="true" style="color: grey;"></i>`;
-                    }
-
-                }
-
-                return star;
+                return excessVote;
 
             },
 

@@ -124,6 +124,7 @@
                                 v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
 
+                                <!-- Film Description -->
                                 <div class="film-description">
 
                                     <!-- Title -->
@@ -148,7 +149,14 @@
 
                                     <!-- Vote -->
                                     <div class="vote">
-                                        <span>Voto:</span> <span v-html="voteStar(film.vote_average)"></span>
+                                        <span>Voto:</span>
+                                        <span v-for="star in 5"
+                                            v-if="star <= voteStar(film.vote_average)">
+                                            <i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>
+                                        </span>
+                                        <span v-else="">
+                                            <i class="fa fa-star" aria-hidden="true" style="color: grey;"></i>
+                                        </span>
                                     </div>
                                     <!-- Vote -->
 
@@ -160,6 +168,7 @@
                                     <!-- Overview -->
 
                                 </div>
+                                <!-- end Film Description -->
 
                             </div>
                             <!-- End Film Text container -->
@@ -200,38 +209,51 @@
                                 v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
 
-                                <!-- Title -->
-                                <!-- Attenzione se copio e incollo nome attributi -->
-                                <div class="title">
-                                    Titolo: {{film.name}}
-                                </div>
-                                <!-- end Title -->
+                                <!-- Film Description -->
+                                <div class="film-description">
 
-                                <!-- Original Title -->
-                                <div class="original-title">
-                                    Titolo Originale: {{film.original_name}}
-                                </div>
-                                <!-- end Original Title -->
+                                    <!-- Title -->
+                                    <!-- Attenzione se copio e incollo nome attributi -->
+                                    <div class="title">
+                                        Titolo: {{film.name}}
+                                    </div>
+                                    <!-- end Title -->
 
-                                <!-- Languages -->
-                                <div class="languages">
-                                    Lingua: <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
-                                        :alt="'Flag icon of ' + film.original_language">
-                                </div>
-                                <!-- Languages -->
+                                    <!-- Original Title -->
+                                    <div class="original-title">
+                                        Titolo Originale: {{film.original_name}}
+                                    </div>
+                                    <!-- end Original Title -->
 
-                                <!-- Vote -->
-                                <div class="vote">
-                                    <span v-html="voteStar(film.vote_average)"></span>
-                                </div>
-                                <!-- Vote -->
+                                    <!-- Languages -->
+                                    <div class="languages">
+                                        Lingua: <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                            :alt="'Flag icon of ' + film.original_language">
+                                    </div>
+                                    <!-- Languages -->
 
-                                <!-- Overview -->
-                                <div class="overview"
-                                    v-if="film.overview != ''">
-                                    <span>Overview:</span> {{filmOverview(film.overview)}}
+                                    <!-- Vote -->
+                                    <div class="vote">
+                                        <span>Voto:</span>
+                                        <span v-for="star in 5"
+                                            v-if="star <= voteStar(film.vote_average)">
+                                            <i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>
+                                        </span>
+                                        <span v-else="">
+                                            <i class="fa fa-star" aria-hidden="true" style="color: grey;"></i>
+                                        </span>
+                                    </div>
+                                    <!-- Vote -->
+
+                                    <!-- Overview -->
+                                    <div class="overview"
+                                        v-if="film.overview != ''">
+                                        <span>Overview:</span> {{filmOverview(film.overview)}}
+                                    </div>
+                                    <!-- Overview -->
+
                                 </div>
-                                <!-- Overview -->
+                                <!-- end Film Description -->
 
                             </div>
                             <!-- End Film Text container -->
