@@ -7,7 +7,7 @@ var app = new Vue(
         /* DATA */
         data: {
 
-            pushText: 'mr robot',
+            pushText: 'paparazzi',
             arrayFilms: [],
             arrayTelefilms: [],
             filmId: ''
@@ -77,6 +77,22 @@ var app = new Vue(
                     } );
             },
 
+            posterImage ( posterPath ) {
+
+                
+
+                let url = 'https://image.tmdb.org/t/p/w342';
+                const nullImage = 'img/null.jpg';
+
+                if ( posterPath === null ) {
+                    url = nullImage;
+                } else {
+                    url += posterPath;
+                }
+
+                return url;
+            },
+
 
             // Funzione che ritorna l'immagine della bandiera 
             // rispetto all'"original_language" passato dall'Api
@@ -85,7 +101,7 @@ var app = new Vue(
 
                 let flag = 'europe';
                 const english = 'gb';
-                const italian = 'it';                
+                const italian = 'it';
 
                 if ( language === 'en' ) {
                     flag = english
@@ -129,11 +145,11 @@ var app = new Vue(
 
             },
 
-            posterMouseEnter ( idFilm ) {
+            mouseEnter ( idFilm ) {
                 this.filmId = idFilm;
             },
 
-            posterMouseLeave () {
+            mouseLeave () {
                 this.filmId = '';
             }
 

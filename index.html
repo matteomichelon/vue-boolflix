@@ -108,9 +108,11 @@
                             <!-- Poster -->
                             <div class="poster"
                                 :class="{none : film.id == filmId}"
-                                v-on:mouseenter=" posterMouseEnter(film.id)"
-                                v-on:mouseleave="posterMouseLeave">
-                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path"
+                                v-on:mouseenter=" mouseEnter(film.id)"
+                                v-on:mouseleave="mouseLeave">
+                                <img
+                                    :class="{'img-null' : film.poster_path == null}"
+                                    :src="posterImage(film.poster_path)"
                                     :alt="'Poster of ' + film.title ">
                             </div>
                             <!-- end Poster -->
@@ -118,8 +120,8 @@
                             <!-- Film Text Container -->
                             <!-- Attenzione se copio e incollo nome attributi -->
                             <div class="film-container"
-                                v-on:mouseenter=" posterMouseEnter(film.id)"
-                                v-on:mouseleave="posterMouseLeave"
+                                v-on:mouseenter=" mouseEnter(film.id)"
+                                v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
 
                                 <!-- Title -->
@@ -171,17 +173,19 @@
                             <!-- Poster -->
                             <div class="poster"
                                 :class="{none : film.id == filmId}"
-                                v-on:mouseenter=" posterMouseEnter(film.id)"
-                                v-on:mouseleave="posterMouseLeave">
-                                <img :src="'https://image.tmdb.org/t/p/w342'+ film.poster_path"
-                                    :alt="'Poster of ' + film.name">
+                                v-on:mouseenter=" mouseEnter(film.id)"
+                                v-on:mouseleave="mouseLeave">
+                                <img
+                                    :class="{'img-null' : film.poster_path == null}"
+                                    :src="posterImage(film.poster_path)"
+                                    :alt="'Poster of ' + film.title ">
                             </div>
                             <!-- end Poster -->
 
                             <!-- Film Text Container -->
                             <div class="film-container"
-                                v-on:mouseenter=" posterMouseEnter(film.id)"
-                                v-on:mouseleave="posterMouseLeave"
+                                v-on:mouseenter=" mouseEnter(film.id)"
+                                v-on:mouseleave="mouseLeave"
                                 :class="{block : film.id == filmId}">
 
                                 <!-- Title -->
