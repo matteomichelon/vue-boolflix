@@ -215,19 +215,19 @@
                                     <!-- Title -->
                                     <!-- Attenzione se copio e incollo nome attributi -->
                                     <div class="title">
-                                        Titolo: {{film.name}}
+                                       <span>Titolo:</span> {{film.name}}
                                     </div>
                                     <!-- end Title -->
 
                                     <!-- Original Title -->
                                     <div class="original-title">
-                                        Titolo Originale: {{film.original_name}}
+                                      <span>Titolo Originale:</span> {{film.original_name}}
                                     </div>
                                     <!-- end Original Title -->
 
                                     <!-- Languages -->
                                     <div class="languages">
-                                        Lingua: <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                      <span>Lingua:</span> <img :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
                                             :alt="'Flag icon of ' + film.original_language">
                                     </div>
                                     <!-- Languages -->
