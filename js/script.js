@@ -131,6 +131,7 @@ var app = new Vue(
             },
 
             posterMouseEnter ( indexFilm ) {
+                console.log(indexFilm)
                 this.activeFilmIndex = indexFilm;
             },
 

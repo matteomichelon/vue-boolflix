@@ -32,7 +32,6 @@ li {
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: white;
 }
 
 .wrapper {
@@ -67,6 +66,7 @@ header {
     height: 80px;
     background-color: #032541;
     justify-content: space-around;
+    color: white;
 }
 
 header li{
