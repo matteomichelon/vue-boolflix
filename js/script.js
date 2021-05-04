@@ -221,6 +221,26 @@ var app = new Vue(
 
                 } );
 
+            // Tv Popular
+            // /tv/popular
+            axios
+                .get( 'https://api.themoviedb.org/3/tv/popular', {
+
+                    params: {
+                        api_key: '3414ee67882ebd632253f10b916225d8',
+                        language: 'it',
+                        page: 1,
+                    }
+
+                } )
+                .then( ( response ) => {
+
+                    // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
+                    // response.data.results
+                    this.arrayTelefilms = response.data.results;
+                    console.log( this.arrayTelefilms );
+
+                } );
 
             // Chiamata di tutti i generi di film presenti nell'Api
             // Creo un array di oggetti con presenti tutti i generi dei Film
