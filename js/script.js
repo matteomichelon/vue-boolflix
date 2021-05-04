@@ -192,6 +192,20 @@ var app = new Vue(
                 }
 
                 return overviewSlice;
+            },
+
+            // Funzione che riceve un array di numeri e ne confronta con 
+            // un altro array già in nostro possesso.
+            // Ritorna un valore booleano
+            slideGenresFilm ( arrayNum ) {
+
+                let viewFilm = false;
+
+                if ( arrayNum.includes( this.genreSelected.id ) ) {
+                    viewFilm = true;
+                }
+
+                return viewFilm;
             }
 
         },
@@ -238,7 +252,6 @@ var app = new Vue(
                     // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                     // response.data.results
                     this.arrayTelefilms = response.data.results;
-                    console.log( this.arrayTelefilms );
 
                 } );
 

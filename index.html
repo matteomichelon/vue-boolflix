@@ -98,7 +98,8 @@
 
                     <select id="genre-select" v-model="genreSelected">
                         <option value="">Tutti i Generi</option>
-                        <option v-for="objectgenre in arrayGenresFilm" :value="objectgenre">{{objectgenre.name}}</option>
+                        <option v-for="objectgenre in arrayGenresFilm" :value="objectgenre">{{objectgenre.name}}
+                        </option>
                     </select>
 
                 </section>
@@ -110,13 +111,15 @@
                     <!-- FILM -->
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
-                        v-if="arrayFilms.length > 0 ">
+                        v-if="arrayFilms.length > 0">
 
                         <h2>Film</h2>
 
                         <!-- Single Film -->
                         <!-- Attenzione cambiare nome array con copia\incolla -->
-                        <div class="film" v-for="film in arrayFilms">
+                        <div class="film"
+                            v-for="film in arrayFilms"
+                            v-if="genreSelected == '' || slideGenresFilm( film.genre_ids )">
 
                             <!-- Poster -->
                             <div class="poster"
