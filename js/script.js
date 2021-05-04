@@ -472,5 +472,9 @@ piene (o mezze vuote :P)
 /* Milestone 6.1 */
 // Creare una lista di generi richiedendo quelli disponibili all'API 
 
+/* Milestone 6.2 */
+// creare dei filtri con i generi tv e movie 
+// per mostrare/nascondere le schede ottenute con la ricerca.
+
 
 
