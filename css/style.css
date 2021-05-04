@@ -162,6 +162,13 @@ header li {
     padding: 20px;
     flex-wrap: wrap;
     text-align: center;
+    position: relative;
+}
+
+.vue-if-film h2{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 

@@ -9,7 +9,6 @@ var app = new Vue(
 
             pushText: '',
             genreSelected: '',
-            arrayPopular: [],
             arrayFilms: [],
             arrayTelefilms: [],
             filmId: '',
@@ -218,7 +217,7 @@ var app = new Vue(
 
                     // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                     // response.data.results
-                    this.arrayPopular = response.data.results;
+                    this.arrayFilms = response.data.results;
 
                 } );
 
