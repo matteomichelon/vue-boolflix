@@ -118,6 +118,40 @@ var app = new Vue(
                     } );
             },
 
+            // Ricerca genere film in riferimento id passato come parametro
+            // /id_film
+            genresTelefilm ( telefilm_id ) {
+                axios
+                    .get( 'https://api.themoviedb.org/3/tv/' + telefilm_id, {
+
+                        params: {
+                            api_key: '3414ee67882ebd632253f10b916225d8',
+                            language: 'it',
+                        }
+
+                    } )
+                    .then( ( response ) => {
+                        this.arrayGenresId = response.data.genres;
+                    } );
+            },
+
+            // Ricerca Cast specifico id passato come parametro
+            // /id_film/casts       
+            infoCastTelefilm ( film_id ) {
+                axios
+                    .get( 'https://api.themoviedb.org/3/tv/' + film_id + '/credits', {
+
+                        params: {
+                            api_key: '3414ee67882ebd632253f10b916225d8',
+                            language: 'it',
+                        }
+
+                    } )
+                    .then( ( response ) => {
+                        this.arrayCast = response.data.cast;
+                    } );
+            },
+
             /* end Chiamate API */
 
             // Funzione per inserire il poster del film
@@ -206,7 +240,7 @@ var app = new Vue(
                 }
 
                 return viewFilm;
-            }
+            },
 
         },
         /* end METHODS */
@@ -258,6 +292,7 @@ var app = new Vue(
             // Chiamata di tutti i generi di film presenti nell'Api
             // Creo un array di oggetti con presenti tutti i generi dei Film
             // con id specifico
+            // genre/movie/list
             axios
                 .get( 'https://api.themoviedb.org/3/genre/movie/list', {
 
@@ -273,10 +308,30 @@ var app = new Vue(
 
                 } );
 
+            // Chiamata di tutti i generi di film presenti nell'Api
+            // Creo un array di oggetti con presenti tutti i generi dei Film
+            // con id specifico
+            // genre/tv/list
+            axios
+                .get( 'https://api.themoviedb.org/3/genre/tv/list', {
+
+                    params: {
+                        api_key: '3414ee67882ebd632253f10b916225d8',
+                        language: 'it',
+                    }
+
+                } )
+                .then( ( response ) => {
+
+                    this.arrayGenresTelefilm = response.data.genres;
+                    
+                } );
+
         }
         /* end MOUNTED */
 
     }
+
 );
 
 /* end Vue */

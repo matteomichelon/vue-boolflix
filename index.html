@@ -91,19 +91,19 @@
                 </div>
                 <!-- end Preview -->
 
-                <!-- Genre filter -->
-                <section class="genre-filter">
+                    <!-- Genre filter Film -->
+                    <section class="genre-filter">
 
-                    <label for="genre-select">Filtra per Genere</label>
+                        <label for="genre-select-Film">Filtra per Genere Film</label>
 
-                    <select id="genre-select" v-model="genreSelected">
-                        <option value="">Tutti i Generi</option>
-                        <option v-for="objectgenre in arrayGenresFilm" :value="objectgenre">{{objectgenre.name}}
-                        </option>
-                    </select>
+                        <select id="genre-select-Film" v-model="genreSelected">
+                            <option value="">Tutti i Generi</option>
+                            <option v-for="objectgenre in arrayGenresFilm" :value="objectgenre">{{objectgenre.name}}
+                            </option>
+                        </select>
 
-                </section>
-                <!-- end Genre filter -->
+                    </section>
+                    <!-- end Genre filter Film -->
 
                 <!-- Container -->
                 <div class="container display-flex">
@@ -243,7 +243,9 @@
 
                         <!-- Single Film -->
                         <!-- Attenzione cambiare nome array con copia\incolla -->
-                        <div class="film" v-for="film in arrayTelefilms">
+                        <div class="film"
+                            v-for="film in arrayTelefilms"
+                            v-if="genreSelected == '' || slideGenresFilm( film.genre_ids )">
 
                             <!-- Poster -->
                             <div class="poster"
@@ -313,7 +315,7 @@
                                         <!-- Click info -->
                                         <span
                                             v-on:mouseenter=" mouseEnter(film.id)"
-                                            v-on:click="infoCast(film.id), genres(film.id)">
+                                            v-on:click="infoCastTelefilm(film.id), genresTelefilm(film.id)">
                                             More info...click me
                                         </span>
                                         <!-- end Click info -->
