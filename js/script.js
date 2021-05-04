@@ -8,6 +8,8 @@ var app = new Vue(
         data: {
 
             pushText: '',
+            genreSelected: '',
+            arrayPopular: [],
             arrayFilms: [],
             arrayTelefilms: [],
             filmId: '',
@@ -48,8 +50,8 @@ var app = new Vue(
 
                         // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                         // response.data.results
-                        this.arrayFilms = response.data.results
-                        //console.log( response.data.results );
+                        this.arrayFilms = response.data.results;
+                        this.arrayPopular = [];
 
                     } );
             },
@@ -73,8 +75,8 @@ var app = new Vue(
 
                         // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                         // response.data.results
-                        this.arrayTelefilms = response.data.results
-                        //console.log( response.data.results );
+                        this.arrayTelefilms = response.data.results;
+                        this.arrayPopular = [];
 
                     } );
             },
@@ -193,14 +195,31 @@ var app = new Vue(
         /* MOUNTED */
         mounted () {
 
+            // Movies Popular
+            // /movie/popular
+            axios
+                .get( 'https://api.themoviedb.org/3/movie/popular', {
+
+                    params: {
+                        api_key: '3414ee67882ebd632253f10b916225d8',
+                        language: 'it',
+                        page: 1,
+                        region: 'IT'
+                    }
+
+                } )
+                .then( ( response ) => {
+
+                    // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
+                    // response.data.results
+                    this.arrayPopular = response.data.results;
+                    console.log( response.data.results );
+
+                } );
+
+            console.log( this.arrayPopular );
         },
         /* end MOUNTED */
-
-        /* CREATED */
-        created () {
-
-        }
-        /* end CREATED */
 
     }
 );
@@ -336,6 +355,9 @@ piene (o mezze vuote :P)
 // dall’API con Nome e Cognome, e i generi associati al film con questo schema:
 // “Genere 1, Genere 2, …”.
 
+/* Milestone 6   */
+// Creare una lista di generi richiedendo quelli disponibili all'API e creare dei filtri con i
+// generi tv e movie per mostrare/nascondere le schede ottenute con la ricerca.
 
 
 

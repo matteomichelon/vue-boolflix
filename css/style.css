@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 
-
 img {
     width: 100%;
     height: auto;
@@ -29,10 +28,8 @@ body {
 }
 
 .wrapper {
-    height: 100vh;
-    min-width: 1000px;
+    min-width: 900px;
 }
-
 
 .container {
     width: 90%;
@@ -52,22 +49,20 @@ body {
     display: flex;
 }
 
+
 /* HEADER */
 
 header {
-    height: 80px;
     align-items: center;
-    justify-content: space-between;
-    height: 80px;
     background-color: #032541;
     justify-content: space-around;
     color: white;
+    padding: 20px 0;
 }
 
 header li {
     padding-left: 25px;
 }
-
 
 .logo img {
     width: 175px;
@@ -141,6 +136,24 @@ header li {
 .searchbar .btn:active {
     position: relative;
     top: 1px;
+}
+
+/* Section Genre */
+
+.genre-filter {
+    padding: 20px;
+    text-align: center;
+}
+
+.genre-filter label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.genre-filter select {
+    width: 300px;
+    height: 30px;
+    margin-left: 20px;
 }
 
 /* Container Film/Telefilm */

@@ -91,22 +91,160 @@
                 </div>
                 <!-- end Preview -->
 
+                <!-- Genre filter -->
+                <section class="genre-filter">
+
+                    <label for="genre-select">Filtra per Genere</label>
+
+                    <select id="genre-select" v-model="genreSelected">
+                        <option value="">Tutti i Generi</option>
+                        <option value="test">test</option>
+                    </select>
+
+                </section>
+                <!-- end Genre filter -->
+
                 <!-- Container -->
                 <div class="container display-flex">
 
-                    <h2 v-if="arrayFilms.length > 0">Film</h2>
+                     <!-- Popular -->
+
+                     <h2 v-if="arrayPopular.length > 0">Film</h2>
+
+                     <!-- v-if Film view -->
+                     <div class="vue-if-film display-flex"
+                         v-if="arrayPopular.length > 0">
+ 
+                         <!-- Single Film -->
+                         <!-- Attenzione cambiare nome array con copia\incolla -->
+                         <div class="film" v-for="film in arrayPopular">
+ 
+                             <!-- Poster -->
+                             <div class="poster"
+                                 :class="{none : film.id == filmId}"
+                                 v-on:mouseenter=" mouseEnter(film.id)"
+                                 v-on:mouseleave="mouseLeave">
+                                 <img
+                                     :class="{'img-null' : film.poster_path == null}"
+                                     :src="posterImage(film.poster_path)"
+                                     :alt="'Poster of ' + film.title ">
+                             </div>
+                             <!-- end Poster -->
+ 
+                             <!-- Film Text Container -->
+                             <!-- Attenzione se copio e incollo nome attributi -->
+                             <div class="film-container"
+                                 v-on:mouseenter=" mouseEnter(film.id)"
+                                 v-on:mouseleave="mouseLeave"
+                                 :class="{block : film.id == filmId}">
+ 
+                                 <!-- Film Description -->
+                                 <div class="film-description">
+ 
+                                     <!-- Title -->
+                                     <div class="title">
+                                         <span>Titolo:</span> {{film.title}}
+                                     </div>
+                                     <!-- end Title -->
+ 
+                                     <!-- Original Title -->
+                                     <div class="original-title">
+                                         <span>Titolo Originale:</span> {{film.original_title}}
+                                     </div>
+                                     <!-- end Original Title -->
+ 
+                                     <!-- Languages -->
+                                     <div class="languages">
+                                         <span>Lingua:</span> <img
+                                             :src="'img/'+ imageLanguage(film.original_language) + '.svg'"
+                                             :alt="'Flag icon of ' + film.original_language">
+                                     </div>
+                                     <!-- Languages -->
+ 
+                                     <!-- Vote -->
+                                     <div class="vote">
+                                         <span>Voto:</span>
+                                         <span v-for="star in 5"
+                                             v-if="star <= voteStar(film.vote_average)">
+                                             <i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>
+                                         </span>
+                                         <span v-else="">
+                                             <i class="fa fa-star" aria-hidden="true" style="color: grey;"></i>
+                                         </span>
+                                     </div>
+                                     <!-- Vote -->
+ 
+                                     <!-- Overview -->
+                                     <div class="overview"
+                                         v-if="film.overview != ''">
+                                         <span>Overview:</span> {{filmOverview(film.overview)}}
+                                     </div>
+                                     <!-- Overview -->
+ 
+                                     <!-- More Info -->
+                                     <div class="more-info">
+ 
+                                         <!-- Click info -->
+                                         <span
+                                             v-on:mouseenter=" mouseEnter(film.id)"
+                                             v-on:click="infoCast(film.id), genres(film.id)">
+                                             More info...click me
+                                         </span>
+                                         <!-- end Click info -->
+ 
+                                         <!-- Box Info -->
+                                         <div class="box-info"
+                                             v-if="arrayCast.length > 0 && film.id == filmId"
+                                             v-on:mouseleave="mouseLeave">
+ 
+                                             <!-- Actor -->
+                                             <h3>Attori</h3>
+                                             <div class="cast-container"
+                                                 v-for="(cast, index) in arrayCast">
+                                                 <div v-if="index <= 4">{{cast.name}}</div>
+                                             </div>
+                                             <!-- end Actor -->
+ 
+                                             <!-- Genre -->
+                                             <h3>Genere</h3>
+                                             <div class="genres"
+                                                 v-for="(genre, index) in arrayGendersId">
+                                                 <span><i class="fas fa-circle"></i> </span> {{genre.name}}
+                                             </div>
+                                             <!-- end Genre -->
+ 
+                                         </div>
+                                         <!-- end Box Info -->
+ 
+                                     </div>
+                                     <!-- end More Info -->
+ 
+                                 </div>
+                                 <!-- end Film Description -->
+ 
+                             </div>
+                             <!-- End Film Text container -->
+ 
+                         </div>
+                         <!-- end Single Film -->
+ 
+                     </div>
+                     <!-- end v-if Film view -->
+                     <!-- end Popular -->
 
                     <!-- FILM -->
+
+                    <h2 v-if="arrayFilms.length > 0">Film</h2>
+
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
-                        v-if="arrayFilms.length > 0">
+                        v-if="arrayFilms.length > 0 ">
 
                         <!-- Single Film -->
                         <!-- Attenzione cambiare nome array con copia\incolla -->
                         <div class="film" v-for="film in arrayFilms">
 
                             <!-- Poster -->
-                            <!-- TEST HERE -->
                             <div class="poster"
                                 :class="{none : film.id == filmId}"
                                 v-on:mouseenter=" mouseEnter(film.id)"
@@ -219,9 +357,10 @@
                     <!-- end v-if Film view -->
                     <!-- end FILM -->
 
+                    <!-- TELEFILM -->
+
                     <h2 v-if="arrayTelefilms.length > 0">Telefilm</h2>
 
-                    <!-- TELEFILM -->
                     <!-- v-if Film view -->
                     <div class="vue-if-film display-flex"
                         v-if="arrayTelefilms.length > 0">
