@@ -27,7 +27,6 @@ var app = new Vue(
 
             /* Funzione callApi */
             // Funzione per richiamare API
-            /* TODO: controlla chiamata singola per  film e telefilm */
             callApi () {
                 this.film( this.pushText );
                 this.telefilm( this.pushText );
