@@ -14,13 +14,17 @@ var app = new Vue(
             arrayTelefilms: [],
             filmId: '',
             arrayCast: [],
-            arrayGendersId: []
+            arrayGenresId: [],
+            arrayGenresFilm: [],
+            arrayGenresTelefilm: []
 
         },
         /* end DATA */
 
         /* METHODS */
         methods: {
+
+            /* Chiamate API */
 
             /* Funzione callApi */
             // Funzione per richiamare API
@@ -111,9 +115,11 @@ var app = new Vue(
 
                     } )
                     .then( ( response ) => {
-                        this.arrayGendersId = response.data.genres;
+                        this.arrayGenresId = response.data.genres;
                     } );
             },
+
+            /* end Chiamate API */
 
             // Funzione per inserire il poster del film
             // Se il poster non è presente dalla chiamata API 
@@ -213,12 +219,29 @@ var app = new Vue(
                     // Secondo l'url inserito avremo l'array di oggetti che ci interessa in:
                     // response.data.results
                     this.arrayPopular = response.data.results;
-                    console.log( response.data.results );
 
                 } );
 
-            console.log( this.arrayPopular );
-        },
+
+            // Chiamata di tutti i generi di film presenti nell'Api
+            // Creo un array di oggetti con presenti tutti i generi dei Film
+            // con id specifico
+            axios
+                .get( 'https://api.themoviedb.org/3/genre/movie/list', {
+
+                    params: {
+                        api_key: '3414ee67882ebd632253f10b916225d8',
+                        language: 'it',
+                    }
+
+                } )
+                .then( ( response ) => {
+
+                    this.arrayGenresFilm = response.data.genres;
+
+                } );
+
+        }
         /* end MOUNTED */
 
     }
@@ -355,9 +378,12 @@ piene (o mezze vuote :P)
 // dall’API con Nome e Cognome, e i generi associati al film con questo schema:
 // “Genere 1, Genere 2, …”.
 
-/* Milestone 6   */
+/* Milestone 6 */
 // Creare una lista di generi richiedendo quelli disponibili all'API e creare dei filtri con i
 // generi tv e movie per mostrare/nascondere le schede ottenute con la ricerca.
+
+/* Milestone 6.1 */
+// Creare una lista di generi richiedendo quelli disponibili all'API 
 
 
 
