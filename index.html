@@ -91,19 +91,19 @@
                 </div>
                 <!-- end Preview -->
 
-                    <!-- Genre filter Film -->
-                    <section class="genre-filter">
+                <!-- Genre filter Film -->
+                <section class="genre-filter">
 
-                        <label for="genre-select-Film">Filtra per Genere Film</label>
+                    <label for="genre-select-Film">Filtra per Genere Film</label>
 
-                        <select id="genre-select-Film" v-model="genreSelected">
-                            <option value="">Tutti i Generi</option>
-                            <option v-for="objectgenre in arrayGenresFilm" :value="objectgenre">{{objectgenre.name}}
-                            </option>
-                        </select>
+                    <select id="genre-select-Film" v-model="genreSelected">
+                        <option value="">Tutti i Generi</option>
+                        <option v-for="objectgenre in arrayGenresFilm" :value="objectgenre">{{objectgenre.name}}
+                        </option>
+                    </select>
 
-                    </section>
-                    <!-- end Genre filter Film -->
+                </section>
+                <!-- end Genre filter Film -->
 
                 <!-- Container -->
                 <div class="container display-flex">
